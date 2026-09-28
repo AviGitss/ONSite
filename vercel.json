@@ -3,7 +3,6 @@
   "buildCommand": "node build.js",
   "outputDirectory": "public",
   "cleanUrls": false,
-  "trailingSlash": true,
   "rewrites": [
     { "source": "/api/:path*", "destination": "https://jbisnfqijtmyhqgtogld.supabase.co/functions/v1/site-api/:path*" },
     { "source": "/stream/:id", "destination": "https://jbisnfqijtmyhqgtogld.supabase.co/functions/v1/site-api/stream/:id" },
