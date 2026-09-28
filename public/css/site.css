@@ -42,7 +42,7 @@ p{margin:0 0 1em}
 .topbar nav{display:flex;gap:22px}.topbar a{color:var(--pale)}.topbar a:hover{color:#fff}
 .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:78px}
-.brand img{height:54px;width:auto}
+.brand img{height:56px;width:auto;border-radius:12px}
 .menu{display:flex;align-items:center;gap:6px}
 .menu .m,.menu .dropbtn{font:600 .96rem var(--sans);color:var(--ink);padding:10px 14px;border-radius:10px;background:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
 .menu .m:hover,.menu .dropbtn:hover{background:var(--tint);color:var(--rich)}
@@ -181,7 +181,7 @@ p{margin:0 0 1em}
 /* footer */
 .site-footer{background:#04204F;color:var(--pale);padding:64px 0 0}
 .fgrid4{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
-.fbrand img{background:#fff;border-radius:12px;padding:8px 12px;height:66px;width:auto;margin-bottom:18px}
+.fbrand img{height:60px;width:auto;border-radius:12px;margin-bottom:18px}
 .fcol h5{color:#fff;font:700 .78rem var(--sans);letter-spacing:.16em;text-transform:uppercase;margin:0 0 16px}.fcol a{display:block;color:var(--pale);padding:5px 0;font-size:.95rem}.fcol a:hover{color:#fff}
 .brandcol p{font-size:.95rem;max-width:380px}.fcontact{color:#fff}
 .fbase{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.14);margin-top:44px;padding-top:22px;padding-bottom:26px;font-size:.82rem;color:#8AA6CC}

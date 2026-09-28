@@ -93,7 +93,7 @@ function layout({ title, desc, body, path: p = '/', cls = '', hero = false }) {
 <div class="topbar"><div class="wrap"><span>${site.tag.replace('A ', '')} · ${site.city}</span><nav aria-label="Utility"><a href="/whitepaper/">Whitepaper</a><a href="/videos/">Videos</a><a href="/contact/">Contact</a><a href="mailto:${site.email}">${site.email}</a></nav></div></div>
 <header class="site-header ${hero ? 'on-hero' : ''}" id="hdr">
   <div class="wrap nav">
-    <a class="brand" href="/" aria-label="Open Netrikkan — home"><img src="/assets/img/logo.png" alt="Open Netrikkan — A UTS Company" width="210" height="88"></a>
+    <a class="brand" href="/" aria-label="Open Netrikkan — home"><img src="/assets/img/logo.png" alt="Open Netrikkan — A UTS Company" width="240" height="58"></a>
     <button class="burger" aria-label="Menu" aria-expanded="false" data-burger>${icon('menu')}</button>
     <nav class="menu" id="menu" aria-label="Primary">
       <a href="/platform/" class="m">Platform</a>
@@ -117,7 +117,7 @@ ${body}
 </main>
 <footer class="site-footer">
   <div class="wrap fgrid4">
-    <div class="fcol brandcol"><a class="fbrand" href="/"><img src="/assets/img/logo.png" alt="Open Netrikkan — A UTS Company" width="190" height="80"></a>
+    <div class="fcol brandcol"><a class="fbrand" href="/"><img src="/assets/img/logo.png" alt="Open Netrikkan — A UTS Company" width="248" height="60"></a>
       <p>An AI-native discrete event simulation platform for manufacturing and logistics. Simulate the decision before it costs you the quarter.</p>
       <p class="fcontact">${site.email}<br>${site.city}</p><p class="fcontact">Part of <a href="${site.uts.url}" target="_blank" rel="noopener">${site.uts.name}</a></p></div>
     <div class="fcol"><h5>Modules</h5>${modules.slice(0, 5).map(m => `<a href="/modules/${m.slug}/">${m.name}</a>`).join('')}</div>
