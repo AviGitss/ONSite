@@ -256,7 +256,8 @@ const integrations = {
   groups: [
     { icon: 'db', title: 'ERP & planning', items: ['SAP S/4HANA and ECC', 'Oracle E-Business Suite and Fusion', 'Microsoft Dynamics 365', 'Infor, IFS, Epicor', 'Advanced planning (APS) systems', 'Sales order, BOM, routing and inventory data'] },
     { icon: 'gear', title: 'MES / MOM', items: ['Siemens Opcenter', 'Dassault DELMIA Apriso', 'Rockwell Plex and FactoryTalk', 'AVEVA MES', 'Work orders, confirmations, downtime and yield feedback', 'Custom and in-house MES'] },
-    { icon: 'layers', title: 'WMS, TMS & supply chain', items: ['SAP EWM', 'Manhattan Associates', 'Blue Yonder', 'Oracle WMS', 'Dock, slotting, inbound and outbound events', 'Transport and carrier data'] },
+    { icon: 'warehouse', title: 'WMS — warehouse management', items: ['SAP EWM', 'Manhattan Associates', 'Blue Yonder WMS', 'Oracle WMS Cloud', 'Körber, Infor and Descartes WMS', 'Inbound receipts, dock appointments, slotting, pick waves, labour and inventory events', 'Custom or in-house WMS through APIs, database views or file drops'] },
+    { icon: 'truck', title: 'TMS & logistics', items: ['SAP TM', 'Oracle Transportation Management', 'Blue Yonder TMS', 'Carrier and 3PL APIs', 'Shipment, dispatch and delivery-window data'] },
     { icon: 'machine', title: 'Digital twin & 3D', items: ['NVIDIA Omniverse and OpenUSD', 'Siemens Tecnomatix and Process Simulate', 'Azure Digital Twins', 'AWS IoT TwinMaker', 'FMI / FMU co-simulation', 'CAD and layout files: STEP, DWG, glTF'] },
     { icon: 'bars', title: 'Historians & time-series', items: ['AVEVA PI (OSIsoft)', 'AVEVA Historian', 'GE Proficy Historian', 'Ignition historian', 'InfluxDB, TimescaleDB', 'Machine states, cycle times and OEE signals'] },
     { icon: 'clock', title: 'Shop-floor protocols', items: ['OPC UA', 'MQTT and Sparkplug B', 'Modbus TCP', 'PLC and SCADA gateways', 'Kafka and AMQP event streams', 'Edge gateways for legacy equipment'] },
@@ -271,6 +272,18 @@ const integrations = {
   },
   note: 'Connector availability and timelines are confirmed during scoping, based on the versions and interfaces at your plant.',
 };
+
+// Brand tiles for the integrations page. Drop an official logo file named <slug>.svg (or .png/.webp) into
+// public/assets/integrations/ and it is shown automatically; without a file the tile shows the product name.
+// Logos belong to their owners - use the versions each vendor publishes for partner/compatibility use.
+const integrationBrands = [
+  { cat: 'ERP', items: [['SAP', 'sap'], ['Oracle', 'oracle'], ['Microsoft Dynamics 365', 'dynamics365'], ['Infor', 'infor'], ['IFS', 'ifs'], ['Epicor', 'epicor']] },
+  { cat: 'MES / MOM', items: [['Siemens Opcenter', 'siemens-opcenter'], ['DELMIA Apriso', 'delmia-apriso'], ['Plex', 'plex'], ['Rockwell FactoryTalk', 'factorytalk'], ['AVEVA MES', 'aveva-mes']] },
+  { cat: 'WMS', items: [['SAP EWM', 'sap-ewm'], ['Manhattan Associates', 'manhattan'], ['Blue Yonder', 'blue-yonder'], ['Oracle WMS', 'oracle-wms'], ['Körber', 'korber'], ['Infor WMS', 'infor-wms']] },
+  { cat: 'Digital twin & 3D', items: [['NVIDIA Omniverse', 'nvidia-omniverse'], ['OpenUSD', 'openusd'], ['Siemens Tecnomatix', 'tecnomatix'], ['Azure Digital Twins', 'azure-digital-twins'], ['AWS IoT TwinMaker', 'aws-twinmaker']] },
+  { cat: 'Historians', items: [['AVEVA PI', 'aveva-pi'], ['AVEVA Historian', 'aveva-historian'], ['GE Proficy', 'proficy'], ['Ignition', 'ignition'], ['InfluxDB', 'influxdb']] },
+  { cat: 'Protocols & standards', items: [['OPC UA', 'opc-ua'], ['MQTT', 'mqtt'], ['Sparkplug', 'sparkplug'], ['Modbus', 'modbus'], ['Apache Kafka', 'kafka'], ['REST / OpenAPI', 'openapi'], ['Webhooks', 'webhooks']] },
+];
 
 // ---------------------------------------------------------------------------
 // FORM OPTIONS
@@ -302,7 +315,7 @@ const faq = [
   { k: ['price', 'pricing', 'cost', 'gain share', 'gain-share', 'commercial', 'pay'], a: 'Where a manufacturer prefers to pay for results, we offer gain-share pricing with an audited baseline, an agreed definition of utilisation, a carve-out for market cyclicality, a joint measurement committee and a monthly floor fee. You pay more only when the measured result improves. Fixed-fee pilots are also possible.', chips: ['How do pilots work?', 'Book a demo'] },
   { k: ['pilot', 'deploy', 'implementation', 'timeline', 'weeks', 'get started', 'start'], a: 'The usual path is four steps: Baseline (1–2 weeks), Model (2–4 weeks), Pilot (4–8 weeks) and Scale (ongoing). You do not need all nine tools — we start with the decision that costs the most today. Durations depend on data readiness.', chips: ['Book a demo', 'Download the whitepaper'] },
   { k: ['data', 'secure', 'security', 'privacy', 'safe', 'cloud', 'llm', 'on-prem'], a: 'Models run on data the plant already holds, and language models run locally, so operational data need not leave your environment. The platform is additive: it sits beside ERP, MES and WMS systems and never replaces them.', chips: ['Integrations', 'Book a demo'] },
-  { k: ['erp', 'sap', 'mes', 'wms', 'integrat', 'opcenter', 'siemens', 'api', 'opc', 'mqtt', 'historian', 'pi system', 'scada', 'plc', 'protocol', 'digital twin', 'omniverse'], a: 'We integrate with ERP (SAP, Oracle, Dynamics), MES/MOM (Siemens Opcenter, DELMIA Apriso, Plex), WMS/TMS, digital-twin platforms (Omniverse, Tecnomatix), historians (AVEVA PI, Proficy) and shop-floor protocols such as OPC UA and MQTT. Data can also arrive as spreadsheets, PDFs and drawings. If you want to connect something else, we expose REST APIs and webhooks for it.', link: ['/integrations/', 'See supported integrations'], chips: ['Book a demo'] },
+  { k: ['erp', 'sap', 'mes', 'wms', 'integrat', 'opcenter', 'siemens', 'api', 'opc', 'mqtt', 'historian', 'pi system', 'scada', 'plc', 'protocol', 'digital twin', 'omniverse'], a: 'We integrate with ERP (SAP, Oracle, Dynamics), MES/MOM (Siemens Opcenter, DELMIA Apriso, Plex), WMS (SAP EWM, Manhattan, Blue Yonder, Oracle WMS) and TMS, digital-twin platforms (Omniverse, Tecnomatix), historians (AVEVA PI, Proficy) and shop-floor protocols such as OPC UA and MQTT. Data can also arrive as spreadsheets, PDFs and drawings. If you want to connect something else, we expose REST APIs and webhooks for it.', link: ['/integrations/', 'See supported integrations'], chips: ['Book a demo'] },
   { k: ['white paper', 'whitepaper', 'paper', 'report', 'download', 'pdf'], a: 'Our whitepaper, “Simulation as the Operating System for Contract Manufacturing”, covers all nine engines. You can read it online in full, or download the PDF with a work email.', link: ['/whitepaper/', 'Open the whitepaper'], chips: ['Book a demo'] },
   { k: ['video', 'demo video', 'watch'], a: 'You can watch our product walkthroughs in the video library — Changeover Optimizer, Newline, Tablet and the Customer Commitment Analyser.', link: ['/videos/', 'Open the video library'], chips: ['Book a demo'] },
   { k: ['case', 'customer', 'reference', 'proof', 'results', 'outcome'], a: 'Our case-study section covers digital-twin and virtual-commissioning programmes from our team’s earlier work, plus our own modules in action.', link: ['/case-studies/', 'Open case studies'], chips: ['Book a demo'] },
@@ -432,4 +445,4 @@ const whitepaper = {
   ],
 };
 
-module.exports = { site, integrations, modules, videos, caseStudies, ecosystem, customerLogos, industries, options, faq, bookIntent, whitepaper };
+module.exports = { site, integrations, integrationBrands, modules, videos, caseStudies, ecosystem, customerLogos, industries, options, faq, bookIntent, whitepaper };

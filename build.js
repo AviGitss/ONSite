@@ -39,6 +39,13 @@ const ICONS = {
 const icon = (k, cls = '') => `<svg class="ic ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[k] || ''}</svg>`;
 const img = (n, alt, extra = '') => `<img src="/assets/img/${n}.jpg" alt="${esc(alt)}" loading="lazy" decoding="async" ${extra}>`;
 
+
+// ---------- integration brand tiles (real logo file if present, otherwise product name) ----------
+const INTG_DIR = path.join(PUB, 'assets/integrations');
+const logoFile = (slug) => ['svg', 'png', 'webp'].map(e => `${slug}.${e}`).find(f => fs.existsSync(path.join(INTG_DIR, f)));
+const brandTile = ([name, slug]) => { const f = logoFile(slug); return f ? `<li class="btile has-logo" title="${esc(name)}"><img src="/assets/integrations/${f}" alt="${esc(name)}" loading="lazy"></li>` : `<li class="btile"><span>${esc(name)}</span></li>`; };
+const brandBlock = (g) => `<div class="bcat"><h4>${g.cat}</h4><ul class="btiles">${g.items.map(brandTile).join('')}</ul></div>`;
+
 // ---------- forms ----------
 const opt = (arr) => arr.map(o => `<option>${esc(o)}</option>`).join('');
 function leadForm({ id, source, submit, note = false, wp = false }) {
@@ -74,7 +81,7 @@ function layout({ title, desc, body, path: p = '/', cls = '', hero = false }) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(t)}</title>
 <meta name="description" content="${esc(desc)}">
-<meta name="theme-color" content="#2D1B69">
+<meta name="theme-color" content="#062F6B">
 <meta property="og:title" content="${esc(t)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:type" content="website">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -157,12 +164,12 @@ const ctaBand = (h = 'See it against your own numbers', p = 'A 30-minute working
 function illus(m) {
   // Abstract model illustration for modules without screenshots
   return `<div class="illus"><svg viewBox="0 0 640 360" aria-hidden="true">
-  <defs><linearGradient id="g${m.n}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A2FA0"/><stop offset="1" stop-color="#2D1B69"/></linearGradient></defs>
+  <defs><linearGradient id="g${m.n}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#036CE7"/><stop offset="1" stop-color="#062F6B"/></linearGradient></defs>
   <rect width="640" height="360" fill="url(#g${m.n})"/>
-  <g stroke="#A98CE8" stroke-opacity=".5" fill="none" stroke-width="2"><path d="M70 180H200M200 180C260 180 250 90 320 90M200 180H320M200 180C260 180 250 270 320 270M320 90H460M320 180H460M320 270H460M460 90C520 90 500 180 560 180M460 180H560M460 270C520 270 500 180 560 180" stroke-dasharray="4 6"/></g>
-  <g fill="#7B5FC4" stroke="#C8B5F5" stroke-width="1.5"><rect x="30" y="152" width="80" height="56" rx="12"/><rect x="280" y="62" width="80" height="56" rx="12"/><rect x="280" y="152" width="80" height="56" rx="12"/><rect x="280" y="242" width="80" height="56" rx="12"/><rect x="420" y="62" width="80" height="56" rx="12" fill="#4A2FA0"/><rect x="420" y="152" width="80" height="56" rx="12" fill="#4A2FA0"/><rect x="420" y="242" width="80" height="56" rx="12" fill="#F0C040" fill-opacity=".9" stroke="#F0C040"/><circle cx="580" cy="180" r="34" fill="#A98CE8" stroke="#fff" stroke-opacity=".6"/></g>
-  <g fill="#fff" font-family="DM Sans, sans-serif" font-size="13" text-anchor="middle" font-weight="600"><text x="70" y="185">Inputs</text><text x="320" y="95">Scenario A</text><text x="320" y="185">Scenario B</text><text x="320" y="275">Scenario C</text><text x="460" y="95">KPI</text><text x="460" y="185">KPI</text><text x="460" y="275" fill="#2D1B69">Best</text><text x="580" y="185" fill="#2D1B69">Plan</text></g>
-  <text x="320" y="338" fill="#C8B5F5" font-family="DM Sans, sans-serif" font-size="12" text-anchor="middle" letter-spacing="2">${esc(m.name.toUpperCase())} · ILLUSTRATIVE MODEL</text>
+  <g stroke="#7DB4F6" stroke-opacity=".5" fill="none" stroke-width="2"><path d="M70 180H200M200 180C260 180 250 90 320 90M200 180H320M200 180C260 180 250 270 320 270M320 90H460M320 180H460M320 270H460M460 90C520 90 500 180 560 180M460 180H560M460 270C520 270 500 180 560 180" stroke-dasharray="4 6"/></g>
+  <g fill="#3F8EF0" stroke="#BCDAFB" stroke-width="1.5"><rect x="30" y="152" width="80" height="56" rx="12"/><rect x="280" y="62" width="80" height="56" rx="12"/><rect x="280" y="152" width="80" height="56" rx="12"/><rect x="280" y="242" width="80" height="56" rx="12"/><rect x="420" y="62" width="80" height="56" rx="12" fill="#036CE7"/><rect x="420" y="152" width="80" height="56" rx="12" fill="#036CE7"/><rect x="420" y="242" width="80" height="56" rx="12" fill="#2EA947" fill-opacity=".9" stroke="#2EA947"/><circle cx="580" cy="180" r="34" fill="#7DB4F6" stroke="#fff" stroke-opacity=".6"/></g>
+  <g fill="#fff" font-family="DM Sans, sans-serif" font-size="13" text-anchor="middle" font-weight="600"><text x="70" y="185">Inputs</text><text x="320" y="95">Scenario A</text><text x="320" y="185">Scenario B</text><text x="320" y="275">Scenario C</text><text x="460" y="95">KPI</text><text x="460" y="185">KPI</text><text x="460" y="275" fill="#062F6B">Best</text><text x="580" y="185" fill="#062F6B">Plan</text></g>
+  <text x="320" y="338" fill="#BCDAFB" font-family="DM Sans, sans-serif" font-size="12" text-anchor="middle" letter-spacing="2">${esc(m.name.toUpperCase())} · ILLUSTRATIVE MODEL</text>
   </svg></div>`;
 }
 
@@ -241,7 +248,7 @@ function home() {
 
 <section class="sec" id="integrations"><div class="wrap">
   <div class="sec-h split"><div><p class="kick">Integrations</p><h2>Works with the systems you already run</h2></div><p>ERP, MES, WMS, digital twin, historians and shop-floor protocols — and open APIs for anything else.</p></div>
-  <div class="intg-tags">${['SAP','Oracle','Dynamics 365','Siemens Opcenter','DELMIA Apriso','Plex','AVEVA PI','OPC UA','MQTT','NVIDIA Omniverse','REST APIs','Webhooks'].map(t => `<span>${t}</span>`).join('')}</div>
+  <div class="brand-wall compact">${C.integrationBrands.map(brandBlock).join('')}</div>
   <p class="center-btn"><a class="btn btn-outline" href="/integrations/">See supported integrations ${icon('arrow')}</a></p>
 </div></section>
 
@@ -372,6 +379,10 @@ function integrationsPage() {
   <div class="intg-grid">${I.groups.map(g => `<article class="intg"><span class="ti">${icon(g.icon)}</span><h3>${g.title}</h3><ul>${g.items.map(x => `<li>${x}</li>`).join('')}</ul></article>`).join('')}</div>
   <p class="wp-note center-note">${I.note}</p>
 </div></section>
+<section class="sec tint"><div class="wrap"><div class="sec-h center"><p class="kick">Works with</p><h2>Systems and standards we connect to</h2></div>
+  <div class="brand-wall">${C.integrationBrands.map(brandBlock).join('')}</div>
+  <p class="wp-note center-note">Product names and logos belong to their respective owners and are shown only to indicate compatibility.</p>
+</div></section>
 <section class="sec tint"><div class="wrap two wide">
   <div><p class="kick">Open APIs</p><h2>${I.api.title}</h2><p class="big">${I.api.body}</p><p><a class="btn btn-primary" href="/contact/">Talk to us about an integration ${icon('arrow')}</a></p></div>
   <aside class="result"><p class="kick">What we expose</p><ul class="glance">${I.api.points.map(x => `<li>${x}</li>`).join('')}</ul></aside>
@@ -384,7 +395,7 @@ function notFound() {
 }
 
 // ---------- favicon ----------
-const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#2D1B69"/><circle cx="32" cy="32" r="18" fill="none" stroke="#A98CE8" stroke-width="4"/><path d="M18 40c8-14 20-18 30-10" fill="none" stroke="#F0C040" stroke-width="4" stroke-linecap="round"/></svg>`;
+const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#062F6B"/><circle cx="32" cy="32" r="18" fill="none" stroke="#7DB4F6" stroke-width="4"/><path d="M18 40c8-14 20-18 30-10" fill="none" stroke="#2EA947" stroke-width="4" stroke-linecap="round"/></svg>`;
 
 // ---------- run ----------
 fs.mkdirSync(path.join(PUB, 'assets/img'), { recursive: true });

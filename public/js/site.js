@@ -51,12 +51,12 @@
   if (cv && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     var ctx = cv.getContext('2d'), W = 0, H = 0, dpr = Math.min(2, window.devicePixelRatio || 1), visible = true;
     var nodes = [
-      { id: 'src', x: .585, y: .5, label: 'Orders', kind: 'src' },
-      { id: 'm1', x: .72, y: .22, label: 'Machine A', srv: 2.6, kind: 'm' },
-      { id: 'm2', x: .72, y: .5, label: 'Machine B', srv: 3.4, kind: 'm' },
-      { id: 'm3', x: .72, y: .78, label: 'Machine C', srv: 4.6, kind: 'm' },
-      { id: 'qc', x: .855, y: .5, label: 'QC', srv: 1.6, kind: 'm' },
-      { id: 'out', x: .955, y: .5, label: 'Dispatch', kind: 'out' }
+      { id: 'src', x: .10, y: .66, label: 'Orders', kind: 'src' },
+      { id: 'm1', x: .38, y: .50, label: 'Machine A', srv: 2.6, kind: 'm' },
+      { id: 'm2', x: .38, y: .66, label: 'Machine B', srv: 3.4, kind: 'm' },
+      { id: 'm3', x: .38, y: .82, label: 'Machine C', srv: 4.6, kind: 'm' },
+      { id: 'qc', x: .68, y: .66, label: 'QC', srv: 1.6, kind: 'm' },
+      { id: 'out', x: .91, y: .66, label: 'Dispatch', kind: 'out' }
     ];
     var by = {}; nodes.forEach(function (n) { n.q = []; n.busy = null; n.done = 0; n.util = 0; by[n.id] = n; });
     var ents = [], done = 0, spawnT = 0, last = performance.now();
@@ -86,23 +86,23 @@
     function draw() {
       ctx.clearRect(0, 0, W, H);
       var conns = [['src', 'm1'], ['src', 'm2'], ['src', 'm3'], ['m1', 'qc'], ['m2', 'qc'], ['m3', 'qc'], ['qc', 'out']];
-      ctx.lineWidth = 1.5; ctx.strokeStyle = 'rgba(200,181,245,.35)'; ctx.setLineDash([4, 6]);
+      ctx.lineWidth = 1.5; ctx.strokeStyle = 'rgba(188,218,251,.35)'; ctx.setLineDash([4, 6]);
       conns.forEach(function (c) { var a = pos(by[c[0]]), b = pos(by[c[1]]); ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); });
       ctx.setLineDash([]);
       var bw = Math.max(64, Math.min(96, W * .065)), bh = 44;
       nodes.forEach(function (n) {
         var p = pos(n); ctx.save(); ctx.translate(p.x, p.y);
         if (n.kind === 'm') {
-          ctx.fillStyle = 'rgba(74,47,160,.85)'; ctx.strokeStyle = 'rgba(200,181,245,.8)'; ctx.lineWidth = 1.5;
+          ctx.fillStyle = 'rgba(3,108,231,.85)'; ctx.strokeStyle = 'rgba(188,218,251,.8)'; ctx.lineWidth = 1.5;
           rr(-bw / 2, -bh / 2, bw, bh, 10); ctx.fill(); ctx.stroke();
           ctx.fillStyle = 'rgba(255,255,255,.12)'; rr(-bw / 2 + 8, bh / 2 - 12, bw - 16, 5, 3); ctx.fill();
-          ctx.fillStyle = n.util > .75 ? '#F0C040' : '#A98CE8'; rr(-bw / 2 + 8, bh / 2 - 12, (bw - 16) * n.util, 5, 3); ctx.fill();
+          ctx.fillStyle = n.util > .75 ? '#2EA947' : '#7DB4F6'; rr(-bw / 2 + 8, bh / 2 - 12, (bw - 16) * n.util, 5, 3); ctx.fill();
           ctx.fillStyle = '#fff'; ctx.font = '600 11px DM Sans, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(n.label, 0, -3);
-          if (n.q.length) { ctx.fillStyle = '#F0C040'; ctx.font = '700 11px DM Sans, sans-serif'; ctx.fillText(n.q.length + ' queued', 0, -bh / 2 - 7); }
+          if (n.q.length) { ctx.fillStyle = '#2EA947'; ctx.font = '700 11px DM Sans, sans-serif'; ctx.fillText(n.q.length + ' queued', 0, -bh / 2 - 7); }
         } else {
-          ctx.fillStyle = n.kind === 'out' ? '#A98CE8' : 'rgba(255,255,255,.14)'; ctx.strokeStyle = 'rgba(255,255,255,.5)';
+          ctx.fillStyle = n.kind === 'out' ? '#7DB4F6' : 'rgba(255,255,255,.14)'; ctx.strokeStyle = 'rgba(255,255,255,.5)';
           ctx.beginPath(); ctx.arc(0, 0, 22, 0, 6.3); ctx.fill(); ctx.stroke();
-          ctx.fillStyle = n.kind === 'out' ? '#2D1B69' : '#fff'; ctx.font = '600 10px DM Sans, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(n.label, 0, 3.5);
+          ctx.fillStyle = n.kind === 'out' ? '#062F6B' : '#fff'; ctx.font = '600 10px DM Sans, sans-serif'; ctx.textAlign = 'center'; if (n.kind === 'out') ctx.fillText(n.label, 0, 3.5); else ctx.fillText(n.label, 0, -30);
         }
         ctx.restore();
       });
@@ -111,7 +111,7 @@
         if (e.state === 'move') { var a = pos(e.from), b = pos(e.to), t = e.t * e.t * (3 - 2 * e.t); x = a.x + (b.x - a.x) * t; y = a.y + (b.y - a.y) * t; }
         else if (e.state === 'wait') { var p = pos(e.at), i = e.at.q.indexOf(e); x = p.x - bw / 2 - 12 - i * 10; y = p.y; }
         else { var p2 = pos(e.at); x = p2.x; y = p2.y + 14; }
-        ctx.beginPath(); ctx.fillStyle = e.hot ? '#F0C040' : '#E3D9FF'; ctx.arc(x, y, e.state === 'serve' ? 3 : 4, 0, 6.3); ctx.fill();
+        ctx.beginPath(); ctx.fillStyle = e.hot ? '#2EA947' : '#DCEBFD'; ctx.arc(x, y, e.state === 'serve' ? 3 : 4, 0, 6.3); ctx.fill();
       });
     }
     function rr(x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
