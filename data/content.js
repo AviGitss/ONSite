@@ -6,8 +6,8 @@ const site = {
   name: 'Open Netrikkan',
   tag: 'A UTS Company',
   headline: 'Simulate the decision before it costs you the quarter.',
-  email: 'sskumar@univisiontechnocon.com',
-  phone: '+91 99001 81304',
+  email: 'info@opennetrikkan.com',
+  uts: { name: 'Univision Technology Solutions (UTS)', url: 'https://uts3s.com', tagline: 'Silicon, Systems, Sustainability' },
   city: 'Bengaluru, India',
   url: 'https://opennetrikkan.com',
 };
@@ -18,7 +18,7 @@ const site = {
 const modules = [
   {
     slug: 'changeover-optimizer', n: '01', name: 'Changeover Optimizer', sector: 'High-mix assembly', icon: 'clock',
-    status: 'Live demo', demo: 'https://watchline.opennetrikkan.com',
+    status: 'Available module',
     question: 'In what order should this week’s work orders run so the line spends the most time producing and the least time changing over?',
     short: 'Which sequence of work orders cuts changeover time this week?',
     body: 'Any high-mix assembly line — consumer electronics, appliances, precision instruments — faces the same problem: every model and variant needs its own fixtures, components and operator skill, and the possible sequences for a week’s orders run into the millions. The Changeover Optimizer models the line, its work orders and the setup relationship between every pair of products, simulates candidate sequences and searches for the one that cuts changeover time while still meeting due dates.',
@@ -35,7 +35,7 @@ const modules = [
   },
   {
     slug: 'newline', n: '02', name: 'Newline', sector: 'Auto components', icon: 'bars',
-    status: 'Live demo', demo: 'https://newline.opennetrikkan.com',
+    status: 'Available module',
     question: 'For a component we have not yet made, which machines, stations and layout hit the required volume and quality — and what will it cost?',
     short: 'Which equipment and layout does a new component line need?',
     body: 'Automotive programmes are quoted against tight targets and long commitments, often within days of a drawing. Newline takes the component’s specification and a plain-English process description, parses it into ordered stages, scores candidate machines transparently against each stage, and simulates the resulting line for throughput, utilisation, work-in-progress and headcount.',
@@ -52,24 +52,24 @@ const modules = [
   },
   {
     slug: 'machine-bank-scheduler', n: '03', name: 'Machine Bank Scheduler', sector: 'Any machine bank', icon: 'machine',
-    status: 'In production — 27 machines', demo: 'https://soltech.opennetrikkan.com',
+    status: 'Available module',
     question: 'Which machine in the bank should take this job, on which shift, so every order ships on time with the fewest changeovers and idle hours?',
     short: 'Which job runs on which machine in the bank, on which shift?',
-    body: 'Any plant running a bank of same-type machines with different specifications — injection moulding presses of different tonnage, CNC centres with different tooling — faces the same scheduling problem. Our earliest full-stack deployment models machine capacity by shift, job-to-machine spec compatibility, due dates and changeover effort, then generates and simulates a schedule. It includes the Customer Commitment Analyser, which checks the real floor before Sales promises a date.',
-    result: 'In production at a manufacturer running a bank of 27 injection moulding machines across two customer programmes, under a gain-share commercial model tied to an audited utilisation baseline.',
+    body: 'Any plant running a bank of same-type machines with different specifications — injection moulding presses of different tonnage, CNC centres with different tooling — faces the same scheduling problem. The module models machine capacity by shift, job-to-machine spec compatibility, due dates and changeover effort, then generates and simulates a schedule. It includes the Customer Commitment Analyser, which checks the real floor before Sales promises a date.',
+    result: 'One verified view of machine capacity: every order gets a proposed delivery date, backed by the schedule, machine loading, labour and inventory.',
     features: [
       ['Customer Commitment Analyser', 'Before a sales commitment, verify production capacity, existing schedule, machine loading, inventory, labour and mould availability — then commit with confidence.'],
       ['Order file to estimate', 'Order spreadsheets are parsed automatically; effort is estimated from cycle time, cavities, station count, OEE, buffer and three-shift schedule.'],
       ['Verified delivery dates', 'A proposed delivery date per order, approved in one click; every date is locked and backed by data.'],
-      ['Master schedule and allocation', 'Equipment assigned to every order in under a minute, with a utilisation heat-map across all 27 machines.'],
+      ['Master schedule and allocation', 'Equipment assigned to every order in under a minute, with a utilisation heat-map across the whole machine bank.'],
       ['Instant re-plan', 'Change any shift parameter and every delivery date recalculates instantly.'],
-      ['Labour and inventory', 'Operator, helper, supervisor and QC gaps flagged before the shift; material demand computed from the live schedule.'],
+      ['Labour and inventory', 'Operator, helper, supervisor and QC gaps flagged before the shift; material demand computed from the current schedule.'],
     ],
     images: ['bank-schedule', 'bank-effort', 'bank-heatmap'], video: 'customer-commitment',
   },
   {
     slug: 'tablet', n: '04', name: 'Tablet', sector: 'Pharma', icon: 'pill',
-    status: 'Live demo', demo: 'https://tablet.opennetrikkan.com',
+    status: 'Available module',
     question: 'How should a tablet line be configured and scheduled so batches clear each stage without queueing or breaching a hold-time limit?',
     short: 'Where does batch flow stall on the tablet line?',
     body: 'Contract pharma manufacturing is a chain of stages — blending, granulation, compression, coating, packing — sharing equipment across products under mandatory cleaning and quality holds. Tablet simulates batch flow through every stage, shows where batches wait and which stage limits output, and quantifies how a change in batch size or campaign order shifts throughput and lead time. Every scenario is a reproducible run, suited to regulated environments where a decision must be explained.',
@@ -86,7 +86,7 @@ const modules = [
   },
   {
     slug: 'warehouse', n: '05', name: 'Warehouse', sector: 'Distribution / 3PL', icon: 'warehouse',
-    status: 'Live demo', demo: 'https://warehouse.opennetrikkan.com',
+    status: 'Available module',
     question: 'With this inbound schedule, dock count and labour roster, where will the warehouse jam — and which change clears it?',
     short: 'Where will inbound and dock operations jam this peak?',
     body: 'Modelled on a reference distribution centre of roughly 500,000 sq ft, 30 dock doors and 80–120 staff per shift. Warehouse takes advance shipping notices, dock and resource parameters and slotting data, then runs scenarios across throughput, slotting, dock scheduling and resource use, comparing volume bands such as a normal week against a peak week.',
@@ -101,10 +101,10 @@ const modules = [
   },
   {
     slug: 'outbound', n: '06', name: 'Outbound', sector: 'Warehouse outbound', icon: 'truck',
-    status: 'Live demo', demo: 'https://outbound.opennetrikkan.com',
+    status: 'Available module',
     question: 'Which combination of picking method, wave release, staffing and cut-off times gets orders out on time at the lowest cost?',
     short: 'Which pick, wave and staffing plan ships on time at lowest cost?',
-    body: 'An interactive simulator built on real flows for a retail distribution customer: the planner moves the operational levers and every KPI recalculates live, with configurations saved and compared side by side. Where a manufacturer ships directly to retailers or brand owners, this is where contractual service levels are won or lost.',
+    body: 'An interactive simulator in which the planner moves the operational levers and every KPI recalculates live, with configurations saved and compared side by side. Where a manufacturer ships directly to retailers or brand owners, this is where contractual service levels are won or lost.',
     result: 'Saved configurations compared side by side, with every KPI recalculating live as levers move.',
     features: [
       ['Live levers', 'Picking method, wave release, staffing and cut-off times as sliders; KPIs recalculate instantly.'],
@@ -115,7 +115,7 @@ const modules = [
   },
   {
     slug: 'fabsim', n: '07', name: 'FabSim', sector: 'Semiconductor', icon: 'chip',
-    status: 'Live demo — 6 modules', demo: 'https://fabsim.opennetrikkan.com',
+    status: 'Available module',
     question: 'Where in the fab are we losing yield, capacity and cycle time — and which lever recovers the most?',
     short: 'Where is the fab losing yield, capacity and cycle time?',
     body: 'Six simulation modules — chamber matching, defect flow, sampling optimisation, capacity planning, excursion risk and work-in-progress flow — run in-browser on realistic synthetic data, so a first evaluation needs no upload of sensitive fab data.',
@@ -130,7 +130,7 @@ const modules = [
   },
   {
     slug: 'oilsim', n: '08', name: 'OilSim', sector: 'Oil & gas upstream', icon: 'drop',
-    status: 'Live demo — 2,000 trials', demo: 'https://oilsim.opennetrikkan.com',
+    status: 'Available module',
     question: 'What is the probability that enough of the right crude reaches the refinery’s crude distillation unit on the day it is needed?',
     short: 'What is the probability crude reaches the refinery on time?',
     body: 'A Monte Carlo engine spanning roughly 20 parameters across crude sourcing, maritime logistics, port and terminal operations and refinery configuration, run across 2,000 stochastic trials — the same discipline every manufacturer with a long, uncertain inbound chain needs, at its most demanding.',
@@ -144,7 +144,7 @@ const modules = [
   },
   {
     slug: 'replenish', n: '09', name: 'Replenish', sector: 'FMCG distribution', icon: 'fridge',
-    status: 'Live demo', demo: 'https://replenish.opennetrikkan.com',
+    status: 'Available module',
     question: 'Which freezers should be restocked, with what, and in what order of visits, so shelves stay full without wasted trips or write-offs?',
     short: 'Which freezers need restocking, and in what order?',
     body: 'FMCG brands and the contract manufacturers behind them depend on cabinets placed across thousands of outlets, where demand varies by outlet, weather and day of week. Replenish simulates cabinet-level demand, stock levels and delivery capacity, then proposes a prioritised restocking plan — closing the loop between sell-through at the outlet and production runs at the plant.',
@@ -217,22 +217,11 @@ const caseStudies = [
     ],
   },
   {
-    id: 'machine-bank-27', tag: 'Injection moulding · Open Netrikkan', img: 'bank-heatmap', group: 'Open Netrikkan deployments',
-    title: 'Scheduling a 27-machine injection moulding bank',
-    objective: 'Give Sales and Planning one verified view of machine capacity so delivery commitments are made from evidence, not spreadsheets.',
-    outcomes: [
-      'In production across two customer programmes on 27 machines',
-      'Every order gets a verified delivery date, approved in one click',
-      'Equipment assigned to an order in under a minute, with utilisation visible for every machine',
-      'Gain-share commercial model tied to an audited utilisation baseline',
-    ],
-  },
-  {
-    id: 'pharma-line', tag: 'Pharma · Open Netrikkan', img: 'tablet-ai', group: 'Open Netrikkan deployments',
+    id: 'pharma-line', tag: 'Pharma · Open Netrikkan', img: 'tablet-ai', group: 'Open Netrikkan modules in action',
     title: 'Validating a tablet-line configuration before the floor',
     objective: 'Find a better line configuration without running a trial batch — the batch that would otherwise cost more than most improvement projects.',
     outcomes: [
-      'Live scenario simulator with OEE, output, batch cycle and release metrics',
+      'Scenario simulator with OEE, output, batch cycle and release metrics',
       'AI parameter search improved demonstration OEE from 33.7% to 39.2% (about +7K units a day)',
       'DES-optimised wash sequence reduces cross-contamination risk and cleaning time',
       'Every scenario is a reproducible run that can be explained to quality',
@@ -248,7 +237,7 @@ const ecosystem = ['A UTS Company', 'NASSCOM DeepTech member', 'Patent-pending I
 const customerLogos = []; // e.g. { file: 'acme.svg', alt: 'Acme' }
 
 const industries = [
-  ['Injection moulding & plastics', 'Machine-bank scheduling, commitments and gain-share deployment.', 'machine-bank-scheduler'],
+  ['Injection moulding & plastics', 'Machine-bank scheduling and verified delivery commitments.', 'machine-bank-scheduler'],
   ['Automotive components', 'Quote new lines faster and more accurately.', 'newline'],
   ['High-mix assembly', 'Cut changeover hours without capital spend.', 'changeover-optimizer'],
   ['Pharma & life sciences', 'Batch flow, hold-times and validated scenarios.', 'tablet'],
@@ -257,6 +246,31 @@ const industries = [
   ['Oil & gas', 'Probability that crude reaches the refinery on time.', 'oilsim'],
   ['FMCG distribution', 'Freezer restocking and route priority.', 'replenish'],
 ];
+
+
+// ---------------------------------------------------------------------------
+// INTEGRATIONS
+// ---------------------------------------------------------------------------
+const integrations = {
+  intro: 'Open Netrikkan is additive: it sits beside the systems a plant already runs and never replaces them. Data can arrive through a connector, an API, a file drop or a spreadsheet — so a first model never has to wait on an integration project.',
+  groups: [
+    { icon: 'db', title: 'ERP & planning', items: ['SAP S/4HANA and ECC', 'Oracle E-Business Suite and Fusion', 'Microsoft Dynamics 365', 'Infor, IFS, Epicor', 'Advanced planning (APS) systems', 'Sales order, BOM, routing and inventory data'] },
+    { icon: 'gear', title: 'MES / MOM', items: ['Siemens Opcenter', 'Dassault DELMIA Apriso', 'Rockwell Plex and FactoryTalk', 'AVEVA MES', 'Work orders, confirmations, downtime and yield feedback', 'Custom and in-house MES'] },
+    { icon: 'layers', title: 'WMS, TMS & supply chain', items: ['SAP EWM', 'Manhattan Associates', 'Blue Yonder', 'Oracle WMS', 'Dock, slotting, inbound and outbound events', 'Transport and carrier data'] },
+    { icon: 'machine', title: 'Digital twin & 3D', items: ['NVIDIA Omniverse and OpenUSD', 'Siemens Tecnomatix and Process Simulate', 'Azure Digital Twins', 'AWS IoT TwinMaker', 'FMI / FMU co-simulation', 'CAD and layout files: STEP, DWG, glTF'] },
+    { icon: 'bars', title: 'Historians & time-series', items: ['AVEVA PI (OSIsoft)', 'AVEVA Historian', 'GE Proficy Historian', 'Ignition historian', 'InfluxDB, TimescaleDB', 'Machine states, cycle times and OEE signals'] },
+    { icon: 'clock', title: 'Shop-floor protocols', items: ['OPC UA', 'MQTT and Sparkplug B', 'Modbus TCP', 'PLC and SCADA gateways', 'Kafka and AMQP event streams', 'Edge gateways for legacy equipment'] },
+    { icon: 'layers', title: 'Quality, PLM & maintenance', items: ['QMS and LIMS', 'Siemens Teamcenter, PTC Windchill, 3DEXPERIENCE', 'IBM Maximo, SAP PM and other CMMS', 'Non-conformance and inspection data'] },
+    { icon: 'db', title: 'Data platforms & files', items: ['SQL and NoSQL databases via ODBC / JDBC', 'Snowflake, Databricks, BigQuery', 'Azure, AWS and Google Cloud storage', 'Excel, CSV, PDF and drawings through document extraction', 'SFTP and scheduled file drops'] },
+    { icon: 'shield', title: 'Identity & security', items: ['SSO with SAML 2.0 and OpenID Connect', 'Microsoft Entra ID, Okta', 'Role-based access', 'On-premise or private-cloud deployment options', 'Language models that can run locally'] },
+  ],
+  api: {
+    title: 'Open APIs for your own integrations',
+    body: 'If you would like to connect Open Netrikkan to a system that is not listed, we will expose the APIs to do it. Every module can be driven programmatically: submit a scenario, retrieve the ranked recommendation and KPIs, and push the approved plan back into your own applications.',
+    points: ['REST APIs described with an OpenAPI specification', 'Webhooks and event streaming for run completion and plan approval', 'Bulk data exchange in JSON, CSV and Parquet', 'API keys and OAuth 2.0 with role-based scopes', 'Sandbox environment and integration support from our team'],
+  },
+  note: 'Connector availability and timelines are confirmed during scoping, based on the versions and interfaces at your plant.',
+};
 
 // ---------------------------------------------------------------------------
 // FORM OPTIONS
@@ -273,12 +287,12 @@ const options = {
 // ---------------------------------------------------------------------------
 const faq = [
   { k: ['what is', 'about', 'platform', 'open netrikkan', 'opennetrikkan', 'who are you', 'what do you do', 'overview'],
-    a: 'Open Netrikkan is an AI-native discrete event simulation (DES) platform for manufacturing and logistics. It models your operation as a sequence of events, runs hundreds or thousands of scenarios against your real constraints, and gives planners a ranked recommendation with the reasoning visible. We are a UTS company, based in Bengaluru.', chips: ['See the modules', 'How does it work?', 'Book a demo'] },
+    a: 'Open Netrikkan is an AI-native discrete event simulation (DES) platform for manufacturing and logistics. It models your operation as a sequence of events, runs hundreds or thousands of scenarios against your real constraints, and gives planners a ranked recommendation with the reasoning visible. We are part of UTS (Univision Technology Solutions) and based in Bengaluru.', chips: ['See the modules', 'How does it work?', 'Book a demo'] },
   { k: ['how does it work', 'how it works', 'agent', 'method', 'approach', 'ai', 'simulation work'], a: 'A four-agent decision chain runs against your plant’s own data: an Interpreter reads plant data and constraints, a Diagnostician finds where time is being lost, a Simulator runs scenarios at scale, and a Recommender ranks the fix and explains why. The loop repeats until improvement flattens, then hands the plan to the planner.', chips: ['Is my data safe?', 'See the modules', 'Book a demo'] },
   { k: ['module', 'modules', 'tools', 'products', 'list', 'what can'], a: 'We have nine decision engines: Changeover Optimizer, Newline, Machine Bank Scheduler, Tablet (pharma), Warehouse, Outbound, FabSim (semiconductor), OilSim (oil & gas) and Replenish (FMCG). Each answers one recurring planning question. Which sector are you in?', chips: ['Assembly / auto', 'Pharma', 'Warehousing', 'Semiconductor', 'Oil & gas', 'FMCG'] },
   { k: ['changeover', 'assembly line', 'sequenc'], a: 'The Changeover Optimizer takes your work-order spreadsheet and searches for the sequence that cuts changeover time while meeting due dates. It shows the hours and money saved against the current plan.', link: ['/modules/changeover-optimizer/', 'Open Changeover Optimizer'], chips: ['Watch the demo video', 'Book a demo'] },
   { k: ['newline', 'new line', 'new component', 'feasibility', 'quote', 'rfp', 'auto component', 'automotive'], a: 'Newline turns a component specification and a plain-English process description into a scored equipment shortlist, process flow, line KPIs and a PDF report — evidence at the moment a quote is written.', link: ['/modules/newline/', 'Open Newline'], chips: ['Watch the demo video', 'Book a demo'] },
-  { k: ['machine bank', 'injection', 'moulding', 'molding', 'soltech', 'commitment', 'delivery date', 'scheduler'], a: 'The Machine Bank Scheduler matches each job to the right machine and shift. It is in production on a bank of 27 injection moulding machines, and includes the Customer Commitment Analyser that verifies real capacity before Sales commits to a date.', link: ['/modules/machine-bank-scheduler/', 'Open Machine Bank Scheduler'], chips: ['How is it priced?', 'Book a demo'] },
+  { k: ['machine bank', 'injection', 'moulding', 'molding', 'commitment', 'delivery date', 'scheduler'], a: 'The Machine Bank Scheduler matches each job to the right machine and shift. It includes the Customer Commitment Analyser that verifies real capacity before Sales commits to a date.', link: ['/modules/machine-bank-scheduler/', 'Open Machine Bank Scheduler'], chips: ['How is it priced?', 'Book a demo'] },
   { k: ['pharma', 'tablet', 'batch', 'oee', 'hold time', 'hold-time'], a: 'Tablet simulates batch flow through blending, granulation, compression, coating and packing, showing where batches queue and which stage limits output. Every scenario is a reproducible run, suited to regulated environments.', link: ['/modules/tablet/', 'Open Tablet'], chips: ['Watch the demo video', 'Book a demo'] },
   { k: ['warehouse', 'dock', '3pl', 'slotting', 'inbound'], a: 'Warehouse models inbound, dock scheduling, slotting and labour — for example a 500,000 sq ft centre with 30 dock doors — and compares a normal week against a peak week, with KPIs tied to the P&L.', link: ['/modules/warehouse/', 'Open Warehouse'], chips: ['Outbound module', 'Book a demo'] },
   { k: ['outbound', 'pick', 'pack', 'dispatch', 'wave'], a: 'Outbound is an interactive simulator for picking method, wave release, staffing and cut-off times; every KPI recalculates live and configurations can be compared side by side.', link: ['/modules/outbound/', 'Open Outbound'], chips: ['Book a demo'] },
@@ -288,12 +302,12 @@ const faq = [
   { k: ['price', 'pricing', 'cost', 'gain share', 'gain-share', 'commercial', 'pay'], a: 'Where a manufacturer prefers to pay for results, we offer gain-share pricing with an audited baseline, an agreed definition of utilisation, a carve-out for market cyclicality, a joint measurement committee and a monthly floor fee. You pay more only when the measured result improves. Fixed-fee pilots are also possible.', chips: ['How do pilots work?', 'Book a demo'] },
   { k: ['pilot', 'deploy', 'implementation', 'timeline', 'weeks', 'get started', 'start'], a: 'The usual path is four steps: Baseline (1–2 weeks), Model (2–4 weeks), Pilot (4–8 weeks) and Scale (ongoing). You do not need all nine tools — we start with the decision that costs the most today. Durations depend on data readiness.', chips: ['Book a demo', 'Download the whitepaper'] },
   { k: ['data', 'secure', 'security', 'privacy', 'safe', 'cloud', 'llm', 'on-prem'], a: 'Models run on data the plant already holds, and language models run locally, so operational data need not leave your environment. The platform is additive: it sits beside ERP, MES and WMS systems and never replaces them.', chips: ['Integrations', 'Book a demo'] },
-  { k: ['erp', 'sap', 'mes', 'wms', 'integrat', 'opcenter', 'siemens'], a: 'The platform reads from and complements ERP, MES and WMS systems (for example SAP and Siemens Opcenter). Data can also arrive as the spreadsheets, PDFs and drawings a plant already holds — document extraction turns them into simulation inputs, so a first model does not wait on an integration project.', chips: ['Book a demo'] },
+  { k: ['erp', 'sap', 'mes', 'wms', 'integrat', 'opcenter', 'siemens', 'api', 'opc', 'mqtt', 'historian', 'pi system', 'scada', 'plc', 'protocol', 'digital twin', 'omniverse'], a: 'We integrate with ERP (SAP, Oracle, Dynamics), MES/MOM (Siemens Opcenter, DELMIA Apriso, Plex), WMS/TMS, digital-twin platforms (Omniverse, Tecnomatix), historians (AVEVA PI, Proficy) and shop-floor protocols such as OPC UA and MQTT. Data can also arrive as spreadsheets, PDFs and drawings. If you want to connect something else, we expose REST APIs and webhooks for it.', link: ['/integrations/', 'See supported integrations'], chips: ['Book a demo'] },
   { k: ['white paper', 'whitepaper', 'paper', 'report', 'download', 'pdf'], a: 'Our whitepaper, “Simulation as the Operating System for Contract Manufacturing”, covers all nine engines. You can read it online in full, or download the PDF with a work email.', link: ['/whitepaper/', 'Open the whitepaper'], chips: ['Book a demo'] },
   { k: ['video', 'demo video', 'watch'], a: 'You can watch our product walkthroughs in the video library — Changeover Optimizer, Newline, Tablet and the Customer Commitment Analyser.', link: ['/videos/', 'Open the video library'], chips: ['Book a demo'] },
-  { k: ['case', 'customer', 'reference', 'proof', 'results', 'outcome'], a: 'Our case-study section covers digital-twin and virtual-commissioning programmes plus our own deployments, such as the 27-machine injection moulding bank in production.', link: ['/case-studies/', 'Open case studies'], chips: ['Book a demo'] },
-  { k: ['contact', 'email', 'phone', 'call', 'reach', 'address', 'location', 'where', 'bengaluru', 'bangalore'], a: 'You can reach Sriram (Senthilkumar), Founder & CEO, at sskumar@univisiontechnocon.com or +91 99001 81304. We are based in Bengaluru, India.', chips: ['Book a demo'] },
-  { k: ['uts', 'univision', 'acquired', 'nasscom', 'company', 'team', 'founder'], a: 'Open Netrikkan is a UTS company, founded by Sriram (Senthilkumar), and a NASSCOM DeepTech member. UTS is the contracting entity and honours all Open Netrikkan commitments.', chips: ['Book a demo'] },
+  { k: ['case', 'customer', 'reference', 'proof', 'results', 'outcome'], a: 'Our case-study section covers digital-twin and virtual-commissioning programmes from our team’s earlier work, plus our own modules in action.', link: ['/case-studies/', 'Open case studies'], chips: ['Book a demo'] },
+  { k: ['contact', 'email', 'phone', 'call', 'reach', 'address', 'location', 'where', 'bengaluru', 'bangalore'], a: 'You can reach our team at info@opennetrikkan.com. We are based in Bengaluru, India.', chips: ['Book a demo'] },
+  { k: ['uts', 'univision', 'acquired', 'nasscom', 'company', 'team', 'founder'], a: 'Open Netrikkan has been acquired by Univision Technology Solutions (UTS), a global engineering and product company (uts3s.com), and is a NASSCOM DeepTech member.', chips: ['Book a demo'] },
   { k: ['hello', 'hi ', 'hey', 'namaste', 'good morning', 'good evening'], a: 'Hello! I can tell you about the Open Netrikkan platform, our nine modules, pricing, deployment or the whitepaper — or set up a demo. What would you like to know?', chips: ['What is Open Netrikkan?', 'See the modules', 'Book a demo'] },
 ];
 
@@ -304,8 +318,8 @@ const bookIntent = ['book', 'demo', 'schedule', 'talk to', 'speak', 'meeting', '
 // ---------------------------------------------------------------------------
 const whitepaper = {
   title: 'Simulation as the Operating System for Contract Manufacturing',
-  dek: 'How discrete event simulation and AI-driven decision-making turn changeovers, schedules and quotes into evidence — nine live decision engines from Open Netrikkan, built for India’s contract manufacturers and the global supply chains they serve.',
-  date: 'September 2026', pages: 12,
+  dek: 'How discrete event simulation and AI-driven decision-making turn changeovers, schedules and quotes into evidence — nine decision engines from Open Netrikkan, built for India’s contract manufacturers and the global supply chains they serve.',
+  date: 'September 2026', pages: 15,
   sections: [
     { id: 'big-idea', title: 'The big idea', html: `
       <p class="wp-lede">Contract manufacturers are not paid for equipment. They are paid for <em>decisions made correctly</em>, thousands of times a week — which job runs next, which machine takes it, how much stock stands behind it.</p>
@@ -315,15 +329,15 @@ const whitepaper = {
       <p>This paper describes nine simulation-based planning tools built by Open Netrikkan, an AI-native discrete event simulation (DES) platform for manufacturing and logistics. Each tool answers one recurring question a contract manufacturer’s planners face every week. Together they span the full loop: designing a new line, scheduling machines, controlling changeovers, running the process, and moving finished goods out the door.</p>
       <p>The method is constant across sectors. Model the operation as a sequence of events, feed it the customer’s real constraints, run hundreds or thousands of scenarios, and hand the planner a ranked recommendation with the reasoning visible. As McKinsey’s 2026 global AI survey finds, <strong>88% of organisations now use AI in at least one function, yet only 37% can attribute any profit impact to it</strong><sup>1</sup> — the gap between using AI and deciding better with it is exactly where these nine tools sit.</p>
       <div class="wp-table-wrap"><table class="wp-table"><thead><tr><th>#</th><th>Tool</th><th>Decision it supports</th><th>Sector</th><th>Status</th></tr></thead><tbody>
-      <tr><td>1</td><td><b>Changeover Optimizer</b></td><td>Sequencing and changeover minimisation on an assembly line</td><td>High-mix assembly</td><td>Live demo</td></tr>
-      <tr><td>2</td><td><b>Newline</b></td><td>Equipment and layout for a new component line</td><td>Auto components</td><td>Live demo</td></tr>
-      <tr><td>3</td><td><b>Machine Bank Scheduler</b></td><td>Schedule for a bank of same-type machines, different specs</td><td>Any machine bank</td><td>In production — 27 machines</td></tr>
-      <tr><td>4</td><td><b>Tablet</b></td><td>Batch flow and bottleneck control on a tablet line</td><td>Pharma</td><td>Live demo</td></tr>
-      <tr><td>5</td><td><b>Warehouse</b></td><td>Dock, slotting and labour planning, inbound and outbound</td><td>Distribution / 3PL</td><td>Live demo</td></tr>
-      <tr><td>6</td><td><b>Outbound</b></td><td>Pick, pack and dispatch configuration</td><td>Warehouse outbound</td><td>Live demo</td></tr>
-      <tr><td>7</td><td><b>FabSim</b></td><td>Yield, capacity and cycle-time levers in a fab</td><td>Semiconductor</td><td>Live demo — 6 modules</td></tr>
-      <tr><td>8</td><td><b>OilSim</b></td><td>Probability crude reaches the refinery on time</td><td>Oil &amp; gas</td><td>Live demo — 2,000 trials</td></tr>
-      <tr><td>9</td><td><b>Replenish</b></td><td>Freezer restocking plan and route priority</td><td>FMCG distribution</td><td>Live demo</td></tr>
+      <tr><td>1</td><td><b>Changeover Optimizer</b></td><td>Sequencing and changeover minimisation on an assembly line</td><td>High-mix assembly</td><td>Available</td></tr>
+      <tr><td>2</td><td><b>Newline</b></td><td>Equipment and layout for a new component line</td><td>Auto components</td><td>Available</td></tr>
+      <tr><td>3</td><td><b>Machine Bank Scheduler</b></td><td>Schedule for a bank of same-type machines, different specs</td><td>Any machine bank</td><td>Available</td></tr>
+      <tr><td>4</td><td><b>Tablet</b></td><td>Batch flow and bottleneck control on a tablet line</td><td>Pharma</td><td>Available</td></tr>
+      <tr><td>5</td><td><b>Warehouse</b></td><td>Dock, slotting and labour planning, inbound and outbound</td><td>Distribution / 3PL</td><td>Available</td></tr>
+      <tr><td>6</td><td><b>Outbound</b></td><td>Pick, pack and dispatch configuration</td><td>Warehouse outbound</td><td>Available</td></tr>
+      <tr><td>7</td><td><b>FabSim</b></td><td>Yield, capacity and cycle-time levers in a fab</td><td>Semiconductor</td><td>Available</td></tr>
+      <tr><td>8</td><td><b>OilSim</b></td><td>Probability crude reaches the refinery on time</td><td>Oil &amp; gas</td><td>Available</td></tr>
+      <tr><td>9</td><td><b>Replenish</b></td><td>Freezer restocking plan and route priority</td><td>FMCG distribution</td><td>Available</td></tr>
       </tbody></table></div>
       <p class="wp-note">The platform sits alongside existing ERP, MES and WMS systems; it does not replace them.</p>` },
     { id: 'problem', title: 'The contract manufacturer’s problem', html: `
@@ -381,7 +395,7 @@ const whitepaper = {
       <h3>One question each, answered in minutes</h3>
       <div class="wp-tools">${modules.map(m => `<a class="wp-tool" href="/modules/${m.slug}/"><i>${m.n}</i><b>${m.name}</b><em>${m.sector}</em><span>${m.short}</span></a>`).join('')}</div>` },
     { id: 'use-cases-1', title: 'Assembly, new lines and machine banks', html: `
-      ${['changeover-optimizer', 'newline', 'machine-bank-scheduler'].map((s, i) => { const m = modules.find(x => x.slug === s); return `<div class="wp-case"><div class="wp-case-h"><span>Use case ${m.n} · ${m.sector}</span><h3>${m.name}</h3></div><p class="wp-q">“${m.question}”</p><p>${m.body}</p><p><b>${s === 'machine-bank-scheduler' ? 'In production:' : 'Result:'}</b> ${m.result}</p></div>`; }).join('')}` },
+      ${['changeover-optimizer', 'newline', 'machine-bank-scheduler'].map((s, i) => { const m = modules.find(x => x.slug === s); return `<div class="wp-case"><div class="wp-case-h"><span>Use case ${m.n} · ${m.sector}</span><h3>${m.name}</h3></div><p class="wp-q">“${m.question}”</p><p>${m.body}</p><p><b>Result:</b> ${m.result}</p></div>`; }).join('')}` },
     { id: 'use-cases-2', title: 'Pharma, warehouse and outbound', html: `
       ${['tablet', 'warehouse', 'outbound'].map(s => { const m = modules.find(x => x.slug === s); return `<div class="wp-case"><div class="wp-case-h"><span>Use case ${m.n} · ${m.sector}</span><h3>${m.name}</h3></div><p class="wp-q">“${m.question}”</p><p>${m.body}</p></div>`; }).join('')}` },
     { id: 'use-cases-3', title: 'Semiconductor, upstream oil and FMCG', html: `
@@ -397,14 +411,14 @@ const whitepaper = {
         <div><i>04</i><b>Scale</b><em>Ongoing</em><span>Move to daily use; extend to a second line, plant or tool.</span></div>
       </div><p class="wp-note">Durations are indicative and depend on data readiness.</p>
       <div class="wp-cols">
-        <div><h4>Aligning our interest with yours</h4><p>Where a manufacturer prefers to pay for results, we offer gain-share pricing. Protections include an audited baseline, an agreed definition of utilisation, a carve-out for market cyclicality, a joint measurement committee, and a monthly floor fee. The manufacturer pays more only when the measured result improves — the model already running at the 27-machine bank scheduling deployment.</p></div>
+        <div><h4>Aligning our interest with yours</h4><p>Where a manufacturer prefers to pay for results, we offer gain-share pricing. Protections include an audited baseline, an agreed definition of utilisation, a carve-out for market cyclicality, a joint measurement committee, and a monthly floor fee. The manufacturer pays more only when the measured result improves.</p></div>
         <div><h4>Data and control</h4><p>Models run on data the plant already holds. Language models run locally, so operational data need not leave the customer’s environment. The platform is additive: it is designed to sit beside SAP, Siemens Opcenter, and equivalent MES/WMS systems, never to replace them.</p></div>
       </div>` },
     { id: 'conclusion', title: 'Conclusion and next steps', html: `
       <h3>See it against your own numbers</h3>
       <p>Contract manufacturers compete on reliability and cost, and both are set by planning decisions that are hard to test on a live floor. Simulation makes those decisions testable, and India’s manufacturers now have both the confidence and the competitive pressure to make that shift before their customers make it for them.</p>
       <p>The best way to see one of these tools is to try it against a real scenario. A practical next step is a 30-minute working session in which you nominate the one planning decision that hurts most, and we run the closest tool against a representative case from your own operation.</p>
-      <blockquote class="wp-quote">To arrange it, contact <b>Sriram (Senthilkumar)</b>, Founder &amp; CEO, Open Netrikkan — ${site.email}</blockquote>` },
+      <blockquote class="wp-quote">To arrange it, write to the Open Netrikkan team at ${site.email}</blockquote>` },
     { id: 'sources', title: 'Sources', html: `
       <ol class="wp-sources">
         <li>McKinsey &amp; Company, <i>The State of AI in 2026: On the Road to ROI</i>, August 2026.</li>
@@ -418,4 +432,4 @@ const whitepaper = {
   ],
 };
 
-module.exports = { site, modules, videos, caseStudies, ecosystem, customerLogos, industries, options, faq, bookIntent, whitepaper };
+module.exports = { site, integrations, modules, videos, caseStudies, ecosystem, customerLogos, industries, options, faq, bookIntent, whitepaper };

@@ -22,4 +22,4 @@ Edit `supabase/functions/site-api/*`, then `supabase functions deploy site-api -
 - Video protection is deterrence only (signed short-lived tokens, UA-bound, byte-range chunks, no-download UI, watermark). A viewer can always capture what they can watch.
 - Leads are in `website_leads`; RLS has no policies so only the service role (edge function) can read/write.
 - The token secret is derived from the service-role key; rotating that key invalidates outstanding tokens only.
-- Edge function lives in the shared `opennetrikkan` Supabase project.
+- Edge function lives in the `opennetrikkan` Supabase project.

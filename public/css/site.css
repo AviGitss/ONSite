@@ -343,3 +343,16 @@ video::-webkit-media-controls-download-button{display:none}video::-webkit-media-
   .brand img{height:46px}.hero{padding-top:52px}.chat{right:14px;bottom:14px}.chat-fab .fab-label{display:none}.chat-fab{padding:16px}
   .modal-in.wpm{padding:24px 18px}.contact .cform{padding:22px}.play{width:60px;height:60px}
 }
+
+/* integrations */
+.intg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+.intg{background:#fff;border:1px solid #E4DBF7;border-radius:16px;padding:26px;box-shadow:0 8px 24px rgba(45,27,105,.06)}
+.intg h3{font-size:1.1rem;margin:12px 0 10px;color:#2D1B69}
+.intg ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.intg li{position:relative;padding-left:18px;font-size:.95rem;color:#3d3560;line-height:1.45}
+.intg li:before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:50%;background:#7B5FC4}
+.center-note{text-align:center;margin-top:26px}
+.intg-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:8px 0 8px}
+.intg-tags span{padding:9px 16px;border-radius:999px;background:#F1ECFB;border:1px solid #C8B5F5;color:#4A2FA0;font-weight:600;font-size:.92rem}
+@media(max-width:980px){.intg-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.intg-grid{grid-template-columns:1fr}}

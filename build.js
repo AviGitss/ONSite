@@ -96,8 +96,9 @@ function layout({ title, desc, body, path: p = '/', cls = '', hero = false }) {
           <div class="mega-grid">${NAV_MODULES}</div>
         </div></div></div>
       <a href="/#industries" class="m">Industries</a>
+      <a href="/integrations/" class="m">Integrations</a>
       <div class="m has-drop"><button class="dropbtn" aria-expanded="false">Resources ${icon('chevron')}</button>
-        <div class="drop"><a href="/whitepaper/"><b>Whitepaper</b><small>Simulation as the OS for contract manufacturing</small></a><a href="/videos/"><b>Product videos</b><small>Walkthroughs of our live modules</small></a><a href="/case-studies/"><b>Case studies</b><small>Outcomes from real programmes</small></a></div></div>
+        <div class="drop"><a href="/whitepaper/"><b>Whitepaper</b><small>Simulation as the OS for contract manufacturing</small></a><a href="/videos/"><b>Product videos</b><small>Walkthroughs of our modules</small></a><a href="/case-studies/"><b>Case studies</b><small>Outcomes from digital-twin programmes and our modules</small></a></div></div>
       <a href="/case-studies/" class="m">Case studies</a>
       <a href="/about/" class="m">Company</a>
       <a class="btn btn-primary nav-cta" href="/contact/">Book a demo</a>
@@ -111,10 +112,10 @@ ${body}
   <div class="wrap fgrid4">
     <div class="fcol brandcol"><a class="fbrand" href="/"><img src="/assets/img/logo.png" alt="Open Netrikkan — A UTS Company" width="190" height="80"></a>
       <p>An AI-native discrete event simulation platform for manufacturing and logistics. Simulate the decision before it costs you the quarter.</p>
-      <p class="fcontact">${site.email}<br>${site.phone}<br>${site.city}</p></div>
+      <p class="fcontact">${site.email}<br>${site.city}</p><p class="fcontact">Part of <a href="${site.uts.url}" target="_blank" rel="noopener">${site.uts.name}</a></p></div>
     <div class="fcol"><h5>Modules</h5>${modules.slice(0, 5).map(m => `<a href="/modules/${m.slug}/">${m.name}</a>`).join('')}</div>
     <div class="fcol"><h5>&nbsp;</h5>${modules.slice(5).map(m => `<a href="/modules/${m.slug}/">${m.name}</a>`).join('')}<a href="/modules/">All modules</a></div>
-    <div class="fcol"><h5>Explore</h5><a href="/platform/">Platform</a><a href="/whitepaper/">Whitepaper</a><a href="/videos/">Videos</a><a href="/case-studies/">Case studies</a><a href="/about/">Company</a><a href="/contact/">Contact</a></div>
+    <div class="fcol"><h5>Explore</h5><a href="/platform/">Platform</a><a href="/whitepaper/">Whitepaper</a><a href="/integrations/">Integrations</a><a href="/videos/">Videos</a><a href="/case-studies/">Case studies</a><a href="/about/">Company</a><a href="/contact/">Contact</a></div>
   </div>
   <div class="wrap fbase"><span>© ${new Date().getFullYear()} Open Netrikkan · A UTS Company. All rights reserved.</span><span>Demonstration figures are on synthetic data; real results depend on each customer’s operating data.</span></div>
 </footer>
@@ -186,9 +187,9 @@ function home() {
       <h1>Simulate the decision <em>before</em> it costs you the quarter.</h1>
       <p class="lede">Open Netrikkan turns changeovers, schedules and quotes into evidence. Model your plant, run thousands of scenarios against your real constraints, and get a ranked recommendation with the reasoning visible.</p>
       <div class="hero-btns"><a class="btn btn-gold" href="/contact/">Book a demo ${icon('arrow')}</a><button class="btn btn-ghost" data-video="${feat.id}" data-title="${esc(feat.title)}" data-blurb="${esc(feat.blurb)}">${icon('play')} Watch a walkthrough</button></div>
-      <ul class="hero-points"><li>${icon('check')} Nine live decision engines</li><li>${icon('check')} Sits beside ERP, MES &amp; WMS</li><li>${icon('check')} In production on a 27-machine bank</li></ul>
+      <ul class="hero-points"><li>${icon('check')} Nine decision engines</li><li>${icon('check')} Sits beside ERP, MES &amp; WMS</li><li>${icon('check')} Integrates via APIs, OPC UA &amp; MQTT</li></ul>
     </div>
-    <div class="hero-kpi" aria-hidden="true"><div class="kpi-card"><span>Illustrative live model</span><b id="kpiThru">0</b><small>jobs completed</small><div class="kpi-row"><div><i id="kpiUtil">0%</i><small>utilisation</small></div><div><i id="kpiQ">0</i><small>in queue</small></div></div></div></div>
+    <div class="hero-kpi" aria-hidden="true"><div class="kpi-card"><span>Illustrative model</span><b id="kpiThru">0</b><small>jobs completed</small><div class="kpi-row"><div><i id="kpiUtil">0%</i><small>utilisation</small></div><div><i id="kpiQ">0</i><small>in queue</small></div></div></div></div>
   </div>
   <div class="wrap"><div class="eco"><span>Built in Bengaluru</span>${C.ecosystem.map(e => `<b>${e}</b>`).join('')}</div></div>
 </section>
@@ -215,14 +216,14 @@ function home() {
 </div></section>
 
 <section class="sec tint" id="videos"><div class="wrap">
-  <div class="sec-h split"><div><p class="kick">See it running</p><h2>Product walkthroughs</h2></div><p>Watch the live modules in action — from an order spreadsheet to a verified plan.</p></div>
+  <div class="sec-h split"><div><p class="kick">See it running</p><h2>Product walkthroughs</h2></div><p>Watch the modules in action — from an order spreadsheet to a verified plan.</p></div>
   <div class="vgrid">${videos.map(videoCard).join('')}</div>
   <p class="center-btn"><a class="btn btn-outline" href="/videos/">Open the video library ${icon('arrow')}</a></p>
 </div></section>
 
 <section class="stats"><div class="wrap statgrid">
-  <div><b data-count="9">9</b><span>live decision engines</span></div>
-  <div><b data-count="27">27</b><span>machines scheduled in production</span></div>
+  <div><b data-count="9">9</b><span>decision engines</span></div>
+  <div><b data-count="9">9</b><span>integration categories supported</span></div>
   <div><b data-count="2000" data-suffix="">2,000</b><span>Monte Carlo trials in OilSim</span></div>
   <div><b data-count="6">6</b><span>simulation modules in FabSim</span></div>
 </div></section>
@@ -233,9 +234,15 @@ function home() {
 </div></section>
 
 <section class="sec tint" id="cases"><div class="wrap">
-  <div class="sec-h split"><div><p class="kick">Case studies</p><h2>Proof from real programmes</h2></div><p>Anonymised outcomes from digital-twin programmes and our own deployments.</p></div>
-  <div class="cgrid3">${caseStudies.filter(c => ['virtual-commissioning', 'machine-bank-27', 'pharma-line'].includes(c.id)).map(c => `<a class="cmini" href="/case-studies/#${c.id}"><div class="cimg">${img(c.img, c.title)}<span class="ctag">${c.tag}</span></div><h3>${c.title}</h3><p>${c.objective}</p><span class="mlink">Read the outcomes ${icon('arrow')}</span></a>`).join('')}</div>
+  <div class="sec-h split"><div><p class="kick">Case studies</p><h2>Outcomes from our programmes</h2></div><p>Anonymised outcomes from digital-twin programmes and our own modules in action.</p></div>
+  <div class="cgrid3">${caseStudies.filter(c => ['virtual-commissioning', 'scanning-robot', 'pharma-line'].includes(c.id)).map(c => `<a class="cmini" href="/case-studies/#${c.id}"><div class="cimg">${img(c.img, c.title)}<span class="ctag">${c.tag}</span></div><h3>${c.title}</h3><p>${c.objective}</p><span class="mlink">Read the outcomes ${icon('arrow')}</span></a>`).join('')}</div>
   <p class="center-btn"><a class="btn btn-outline" href="/case-studies/">All case studies ${icon('arrow')}</a></p>
+</div></section>
+
+<section class="sec" id="integrations"><div class="wrap">
+  <div class="sec-h split"><div><p class="kick">Integrations</p><h2>Works with the systems you already run</h2></div><p>ERP, MES, WMS, digital twin, historians and shop-floor protocols — and open APIs for anything else.</p></div>
+  <div class="intg-tags">${['SAP','Oracle','Dynamics 365','Siemens Opcenter','DELMIA Apriso','Plex','AVEVA PI','OPC UA','MQTT','NVIDIA Omniverse','REST APIs','Webhooks'].map(t => `<span>${t}</span>`).join('')}</div>
+  <p class="center-btn"><a class="btn btn-outline" href="/integrations/">See supported integrations ${icon('arrow')}</a></p>
 </div></section>
 
 <section class="sec"><div class="wrap wpbanner">
@@ -244,7 +251,7 @@ function home() {
 </div></section>
 
 ${ctaBand()}`;
-  return layout({ title: site.name, desc: 'Open Netrikkan is an AI-native discrete event simulation platform for manufacturing and logistics: nine live decision engines that turn changeovers, schedules and quotes into evidence.', body, hero: true, cls: 'page-home' });
+  return layout({ title: site.name, desc: 'Open Netrikkan is an AI-native discrete event simulation platform for manufacturing and logistics: nine decision engines that turn changeovers, schedules and quotes into evidence.', body, hero: true, cls: 'page-home' });
 }
 
 function platform() {
@@ -280,13 +287,13 @@ function modulePage(m, i) {
   const body = `
 <section class="page-hero mod-hero"><div class="wrap two">
   <div><p class="crumb"><a href="/modules/">Modules</a> / ${m.n}</p><p class="kick">${m.sector}</p><h1>${m.name}</h1><p class="q">“${m.question}”</p>
-    <div class="hero-btns"><a class="btn btn-gold" href="${m.demo}" target="_blank" rel="noopener">Launch live demo ${icon('ext')}</a>${v ? `<button class="btn btn-ghost" data-video="${v.id}" data-title="${esc(v.title)}" data-blurb="${esc(v.blurb)}">${icon('play')} Watch the video</button>` : `<a class="btn btn-ghost" href="/contact/">Book a walkthrough</a>`}</div>
+    <div class="hero-btns"><a class="btn btn-gold" href="/contact/">Book a walkthrough ${icon('arrow')}</a>${v ? `<button class="btn btn-ghost" data-video="${v.id}" data-title="${esc(v.title)}" data-blurb="${esc(v.blurb)}">${icon('play')} Watch the video</button>` : `<a class="btn btn-ghost" href="/integrations/">Integrations</a>`}</div>
     <p class="mstatus">${icon('check')} ${m.status}</p></div>
   <div class="mod-visual">${m.images[0] ? `<button class="shot big" data-lightbox="/assets/img/${m.images[0]}.jpg" data-cap="${esc(m.name)}">${img(m.images[0], m.name + ' screenshot', 'loading="eager"')}</button>` : illus(m)}</div>
 </div><div class="ph-grid" aria-hidden="true"></div></section>
 <section class="sec"><div class="wrap two wide">
   <div><h2>What it does</h2><p class="big">${m.body}</p></div>
-  <aside class="result"><p class="kick">${m.slug === 'machine-bank-scheduler' ? 'In production' : 'Result'}</p><p>${m.result}</p></aside>
+  <aside class="result"><p class="kick">Result</p><p>${m.result}</p></aside>
 </div></section>
 <section class="sec tint"><div class="wrap"><div class="sec-h"><p class="kick">Capabilities</p><h2>Inside ${m.name}</h2></div>
   <div class="feat">${m.features.map(f => `<div class="fitem"><span>${icon('check')}</span><div><h3>${f[0]}</h3><p>${f[1]}</p></div></div>`).join('')}</div></div></section>
@@ -300,17 +307,17 @@ ${ctaBand(`Try ${m.name} on your own data`, 'Nominate the decision that hurts mo
 function videosPage() {
   const body = `${pageHero('Videos', 'Product walkthroughs', 'Watch the Open Netrikkan modules running — from an order spreadsheet to a verified plan. Videos are streamed for viewing only.')}
 <section class="sec"><div class="wrap"><div class="vgrid">${videos.map(videoCard).join('')}</div>
-<div class="note-box">${icon('lock')}<p><b>Streaming only.</b> Our videos are provided for viewing on this site and are not available for download. Want to see a module on your own data? <a href="/contact/">Book a live demo</a>.</p></div></div></section>${ctaBand()}`;
+<div class="note-box">${icon('lock')}<p><b>Streaming only.</b> Our videos are provided for viewing on this site and are not available for download. Want to see a module on your own data? <a href="/contact/">Book a demo</a>.</p></div></div></section>${ctaBand()}`;
   return layout({ title: 'Videos', desc: 'Watch product walkthroughs of Open Netrikkan modules: Changeover Optimizer, Newline, Tablet and the Customer Commitment Analyser.', body, path: '/videos/' });
 }
 
 function casesPage() {
   const groups = [...new Set(caseStudies.map(c => c.group))];
-  const body = `${pageHero('Case studies', 'Outcomes from real programmes', 'Digital-twin, virtual-commissioning and scheduling programmes delivered by our team and on our platform. Client and employer names are withheld.')}
-${groups.map((g, gi) => `<section class="sec ${gi % 2 ? 'tint' : ''}"><div class="wrap"><div class="sec-h"><p class="kick">${g}</p><h2>${gi === 0 ? 'Experience from large-scale digital-twin programmes' : 'Deployed on the Open Netrikkan platform'}</h2></div><div class="cgrid">${caseStudies.filter(c => c.group === g).map(caseCard).join('')}</div></div></section>`).join('')}
+  const body = `${pageHero('Case studies', 'Case studies and modules in action', 'Digital-twin and virtual-commissioning programmes from our team’s earlier work, and our modules in action. Client and employer names are withheld.')}
+${groups.map((g, gi) => `<section class="sec ${gi % 2 ? 'tint' : ''}"><div class="wrap"><div class="sec-h"><p class="kick">${g}</p><h2>${gi === 0 ? 'Experience from large-scale digital-twin programmes' : 'Open Netrikkan modules, illustrated on demonstration data'}</h2></div><div class="cgrid">${caseStudies.filter(c => c.group === g).map(caseCard).join('')}</div></div></section>`).join('')}
 <section class="sec"><div class="wrap"><div class="sec-h center"><p class="kick">Trusted and recognised</p><h2>Backed by a growing ecosystem</h2></div>
 <div class="logos">${C.ecosystem.map(e => `<div class="logo">${e}</div>`).join('')}${C.customerLogos.map(l => `<div class="logo img"><img src="/assets/logos/${l.file}" alt="${esc(l.alt)}"></div>`).join('')}</div></div></section>${ctaBand('Have a similar challenge?')}`;
-  return layout({ title: 'Case studies', desc: 'Anonymised case studies: aircraft-fuselage virtual commissioning, digital-twin quality, and a 27-machine injection moulding scheduling deployment.', body, path: '/case-studies/' });
+  return layout({ title: 'Case studies', desc: 'Anonymised case studies: aircraft-fuselage virtual commissioning, digital-twin quality, and Open Netrikkan modules in action.', body, path: '/case-studies/' });
 }
 
 function whitepaperPage() {
@@ -321,7 +328,7 @@ function whitepaperPage() {
   <div><p class="kick gold">Whitepaper · ${whitepaper.date} · ${whitepaper.pages} pages</p><h1>${whitepaper.title}</h1><p class="lede">${whitepaper.dek}</p>
     <div class="hero-btns"><button class="btn btn-gold" data-wp-download>${icon('doc')} Download the PDF</button><a class="btn btn-ghost" href="#big-idea">Read online ${icon('arrow')}</a></div>
     <p class="wp-hint">${icon('lock')} Free with your corporate email — read the full paper below without signing up.</p></div>
-  <div class="wp-cover"><div class="cover"><small>Whitepaper · ${whitepaper.date}</small><h2>Simulation as the Operating System for Contract Manufacturing</h2><p>Nine live decision engines from Open Netrikkan</p><span>opennetrikkan.com</span></div></div>
+  <div class="wp-cover"><div class="cover"><small>Whitepaper · ${whitepaper.date}</small><h2>Simulation as the Operating System for Contract Manufacturing</h2><p>Nine decision engines from Open Netrikkan</p><span>opennetrikkan.com</span></div></div>
 </div></section>
 <div class="wrap wp-layout">
   <aside class="wp-toc"><p class="kick">In this paper</p>${toc}<button class="btn btn-primary btn-block" data-wp-download>${icon('doc')} Download PDF</button></aside>
@@ -335,13 +342,15 @@ ${ctaBand('Nominate the one decision that hurts most')}`;
 }
 
 function aboutPage() {
-  const body = `${pageHero('Company', 'Decisions made correctly, thousands of times a week', 'Open Netrikkan is an AI-native discrete event simulation platform for manufacturing and logistics, built in Bengaluru and part of UTS.')}
+  const body = `${pageHero('Company', 'Decisions made correctly, thousands of times a week', 'Open Netrikkan is an AI-native discrete event simulation platform for manufacturing and logistics, built in Bengaluru and now part of UTS.')}
 <section class="sec"><div class="wrap two wide">
   <div><h2>Why we exist</h2><p class="big">Contract manufacturers are not paid for equipment. They are paid for decisions made correctly — which job runs next, which machine takes it, how much stock stands behind it. Most of those decisions are still made on spreadsheets and experience.</p><p>We build simulation-based decision engines that let a plant test a decision before it commits to it: model the operation as a sequence of events, feed it the real constraints, run hundreds or thousands of scenarios, and hand the planner a ranked recommendation with the reasoning visible.</p></div>
-  <aside class="result"><p class="kick">At a glance</p><ul class="glance"><li><b>A UTS company</b> — UTS is the contracting entity and honours all Open Netrikkan commitments</li><li><b>NASSCOM DeepTech</b> member</li><li><b>Patent-pending IP</b> across the platform</li><li><b>Bengaluru, India</b></li></ul></aside>
+  <aside class="result"><p class="kick">At a glance</p><ul class="glance"><li><b>Acquired by UTS</b> — Univision Technology Solutions</li><li><b>NASSCOM DeepTech</b> member</li><li><b>Patent-pending IP</b> across the platform</li><li><b>Bengaluru, India</b></li></ul></aside>
 </div></section>
-<section class="sec tint"><div class="wrap"><div class="sec-h center"><p class="kick">Leadership</p><h2>Contact the founder</h2></div>
-  <div class="person"><div class="pav">S</div><div><h3>Sriram (Senthilkumar)</h3><p class="muted">Founder &amp; CEO, Open Netrikkan</p><p>${site.email}<br>${site.phone}</p></div></div></div></section>
+<section class="sec tint" id="uts"><div class="wrap two wide">
+  <div><p class="kick">Part of UTS</p><h2>Open Netrikkan has been acquired by UTS</h2><p class="big">${site.uts.name} is a global engineering and product company — <em>${site.uts.tagline}</em>. Its work spans semiconductor design, embedded and RF products, radar systems and AI-driven digital twin and decarbonisation platforms, with accountability across the whole lifecycle of what it builds.</p><p>Open Netrikkan brings discrete event simulation and AI decision engines for manufacturing and logistics into that portfolio, alongside UTS’s engineering depth in silicon, systems and sustainability.</p><p><a class="btn btn-primary" href="${site.uts.url}" target="_blank" rel="noopener">Visit uts3s.com ${icon('ext')}</a></p></div>
+  <aside class="result"><p class="kick">UTS at a glance</p><ul class="glance"><li><b>Silicon, Systems, Sustainability</b></li><li>Semiconductor design</li><li>Embedded and RF products</li><li>Radar systems</li><li>AI-driven digital twin and decarbonisation platforms</li></ul></aside>
+</div></section>
 ${ctaBand()}`;
   return layout({ title: 'Company', desc: 'About Open Netrikkan, an AI-native discrete event simulation platform for manufacturing and logistics.', body, path: '/about/' });
 }
@@ -350,9 +359,24 @@ function contactPage() {
   const body = `${pageHero('Contact', 'Book a demo', 'A practical next step is a 30-minute working session: you nominate the one planning decision that hurts most, and we run the closest tool against a representative case from your operation.')}
 <section class="sec"><div class="wrap two contact">
   <div class="cform"><h2>Tell us about you</h2>${leadForm({ id: 'contactForm', source: 'demo', submit: 'Request a demo', note: true })}<div class="done" id="contactDone" hidden><div class="ok">${icon('check')}</div><h3>Thank you — we will be in touch shortly</h3><p>In the meantime, you can read the <a href="/whitepaper/">whitepaper</a> or watch a <a href="/videos/">product video</a>.</p></div></div>
-  <aside class="result"><p class="kick">Talk to us directly</p><p><b>Sriram (Senthilkumar)</b><br>Founder &amp; CEO</p><p>${site.email}<br>${site.phone}<br>${site.city}</p><hr><p class="kick">What happens next</p><ol class="next"><li>We review your request within one working day.</li><li>We agree the one decision that hurts most.</li><li>We run the closest module against a representative case.</li></ol></aside>
+  <aside class="result"><p class="kick">Talk to us directly</p><p><a href="mailto:${site.email}">${site.email}</a><br>${site.city}</p><hr><p class="kick">What happens next</p><ol class="next"><li>We review your request within one working day.</li><li>We agree the one decision that hurts most.</li><li>We run the closest module against a representative case.</li></ol></aside>
 </div></section>`;
   return layout({ title: 'Contact', desc: 'Book an Open Netrikkan demo: a 30-minute working session on the planning decision that hurts most.', body, path: '/contact/' });
+}
+
+function integrationsPage() {
+  const I = C.integrations;
+  const body = `${pageHero('Integrations', 'Fits the stack you already have', I.intro)}
+<section class="sec"><div class="wrap">
+  <div class="sec-h center"><p class="kick">Supported integrations</p><h2>ERP, MES, digital twin, historians and protocols</h2></div>
+  <div class="intg-grid">${I.groups.map(g => `<article class="intg"><span class="ti">${icon(g.icon)}</span><h3>${g.title}</h3><ul>${g.items.map(x => `<li>${x}</li>`).join('')}</ul></article>`).join('')}</div>
+  <p class="wp-note center-note">${I.note}</p>
+</div></section>
+<section class="sec tint"><div class="wrap two wide">
+  <div><p class="kick">Open APIs</p><h2>${I.api.title}</h2><p class="big">${I.api.body}</p><p><a class="btn btn-primary" href="/contact/">Talk to us about an integration ${icon('arrow')}</a></p></div>
+  <aside class="result"><p class="kick">What we expose</p><ul class="glance">${I.api.points.map(x => `<li>${x}</li>`).join('')}</ul></aside>
+</div></section>${ctaBand('Tell us what you need to connect')}`;
+  return layout({ title: 'Integrations', desc: 'Open Netrikkan integrates with ERP, MES, WMS, digital-twin platforms, historians and shop-floor protocols, and exposes open APIs for your own integrations.', body, path: '/integrations/' });
 }
 
 function notFound() {
@@ -372,13 +396,14 @@ modules.forEach((m, i) => write(`modules/${m.slug}/index.html`, modulePage(m, i)
 write('videos/index.html', videosPage());
 write('case-studies/index.html', casesPage());
 write('whitepaper/index.html', whitepaperPage());
+write('integrations/index.html', integrationsPage());
 write('about/index.html', aboutPage());
 write('contact/index.html', contactPage());
 write('404.html', notFound());
 
 // Edge-function content (chatbot knowledge base, form options, video ids) generated from the same source of truth
-const edge = { site: { email: site.email, phone: site.phone }, faq: C.faq, bookIntent: C.bookIntent, options, videoIds: videos.map(v => v.id) };
+const edge = { site: { email: site.email }, faq: C.faq, bookIntent: C.bookIntent, options, videoIds: videos.map(v => v.id) };
 const edgeDir = path.join(__dirname, 'supabase/functions/site-api');
 fs.mkdirSync(edgeDir, { recursive: true });
 fs.writeFileSync(path.join(edgeDir, 'content.mjs'), '// GENERATED by build.js from data/content.js - do not edit by hand\nexport default ' + JSON.stringify(edge) + ';\n');
-console.log('Built', 8 + modules.length, 'pages + edge content');
+console.log('Built', 9 + modules.length, 'pages + edge content');

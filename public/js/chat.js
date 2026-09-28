@@ -25,7 +25,7 @@
     fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: text, state: state, page: location.pathname }) })
       .then(function (r) { return r.json(); })
       .then(function (j) { if (j.state) state = j.state; setTimeout(function () { t.remove(); add(j.reply || 'Sorry, something went wrong.', 'bot', j.link); setChips(j.chips); busy = false; }, 350); })
-      .catch(function () { t.remove(); add('I could not reach the server. Please email sskumar@univisiontechnocon.com and we will respond.', 'bot'); busy = false; });
+      .catch(function () { t.remove(); add('I could not reach the server. Please email info@opennetrikkan.com and we will respond.', 'bot'); busy = false; });
   }
   function open() {
     root.classList.add('open'); panel.hidden = false; fab.setAttribute('aria-expanded', 'true');
