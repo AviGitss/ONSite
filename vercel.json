@@ -1,0 +1,24 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "node build.js",
+  "outputDirectory": "public",
+  "cleanUrls": false,
+  "trailingSlash": true,
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "https://jbisnfqijtmyhqgtogld.supabase.co/functions/v1/site-api/:path*" },
+    { "source": "/stream/:id", "destination": "https://jbisnfqijtmyhqgtogld.supabase.co/functions/v1/site-api/stream/:id" },
+    { "source": "/download/whitepaper", "destination": "https://jbisnfqijtmyhqgtogld.supabase.co/functions/v1/site-api/download" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    },
+    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] }
+  ]
+}

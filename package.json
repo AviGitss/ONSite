@@ -1,0 +1,8 @@
+{
+  "name": "open-netrikkan-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Open Netrikkan simulation platform website with lead capture, chatbot, gated whitepaper and protected video streaming",
+  "scripts": { "build": "node build.js", "start": "node build.js && node server.js" },
+  "engines": { "node": ">=18" }
+}
