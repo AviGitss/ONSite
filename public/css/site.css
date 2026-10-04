@@ -371,3 +371,9 @@ video::-webkit-media-controls-download-button{display:none}video::-webkit-media-
 
 /* readable green on dark surfaces */
 .hero .kick,.kpi-row i,.kick.gold,.page-hero .kick,.wp-hero .kick,.cta-band .kick{color:#57D27A}
+
+/* footer legal + legal pages */
+.flegal{display:flex;flex-wrap:wrap;gap:6px 22px}.flegal a{color:#B6C4DA}.flegal a:hover{color:#fff}
+.legal{max-width:820px}.legal h2{font-size:1.5rem;margin:1.6em 0 .4em}.legal ul{padding-left:1.2em}.legal li{margin:.3em 0}
+.ltable{width:100%;border-collapse:collapse;font-size:.95rem;margin:12px 0}.ltable th,.ltable td{border:1px solid var(--line);padding:10px 12px;text-align:left}.ltable th{background:var(--tint)}
+.prefbox{background:var(--tint);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:12px;max-width:460px}

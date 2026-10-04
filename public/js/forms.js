@@ -52,3 +52,8 @@
     });
   });
 })();
+
+/* cookie preferences */
+(function(){var b=document.getElementById('prefSave');if(!b)return;var a=document.getElementById('prefAnalytics'),m=document.getElementById('prefMsg');
+try{a.checked=localStorage.getItem('on_cookie_pref')==='analytics'}catch(e){}
+b.addEventListener('click',function(){try{localStorage.setItem('on_cookie_pref',a.checked?'analytics':'essential');m.textContent='Preferences saved.'}catch(e){m.textContent='Your browser blocked saving preferences.'}})})();

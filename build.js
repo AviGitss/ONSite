@@ -124,7 +124,7 @@ ${body}
     <div class="fcol"><h5>&nbsp;</h5>${modules.slice(5).map(m => `<a href="/modules/${m.slug}/">${m.name}</a>`).join('')}<a href="/modules/">All modules</a></div>
     <div class="fcol"><h5>Explore</h5><a href="/platform/">Platform</a><a href="/whitepaper/">Whitepaper</a><a href="/integrations/">Integrations</a><a href="/videos/">Videos</a><a href="/case-studies/">Case studies</a><a href="/about/">Company</a><a href="/contact/">Contact</a></div>
   </div>
-  <div class="wrap fbase"><span>© ${new Date().getFullYear()} Open Netrikkan · A UTS Company. All rights reserved.</span><span>Demonstration figures are on synthetic data; real results depend on each customer’s operating data.</span></div>
+  <div class="wrap fbase"><span>© ${new Date().getFullYear()} Open Netrikkan. All rights reserved.</span><nav class="flegal" aria-label="Legal"><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-of-use/">Terms of Use</a><a href="/cookie-policy/">Cookie Policy</a><a href="/accessibility/">Accessibility</a><a href="/cookie-policy/#preferences">Cookie preferences</a><a href="mailto:${site.email}?subject=Website%20feedback">Feedback</a></nav></div>
 </footer>
 
 <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Video player" hidden>
@@ -390,6 +390,48 @@ function integrationsPage() {
   return layout({ title: 'Integrations', desc: 'Open Netrikkan integrates with ERP, MES, WMS, digital-twin platforms, historians and shop-floor protocols, and exposes open APIs for your own integrations.', body, path: '/integrations/' });
 }
 
+// ---------- legal pages (draft text - have counsel review before relying on it) ----------
+const LEGAL = {
+  'privacy-policy': ['Privacy Policy', 'How Open Netrikkan collects, uses and protects information submitted through this website.', `
+<h2>Who we are</h2><p>This website is operated by Open Netrikkan, part of Univision Technology Solutions (UTS), Bengaluru, India. Questions about this policy: <a href="mailto:${site.email}">${site.email}</a>.</p>
+<h2>Information we collect</h2><ul><li><b>Information you give us</b> — name, job title, designation level, work email, phone number, company size, sector, area of interest and any note, when you request a demo, download the whitepaper or chat with our assistant.</li><li><b>Technical information</b> — a one-way hash of your IP address (used only for abuse prevention and rate limiting), the page you submitted from, and your browser type when streaming a video.</li></ul>
+<h2>How we use it</h2><ul><li>To respond to your request and arrange a demo or working session.</li><li>To provide the whitepaper download and protected video streaming.</li><li>To keep the site secure and prevent abuse.</li><li>To contact you about Open Netrikkan products and services related to your request. You can opt out at any time.</li></ul>
+<h2>Sharing</h2><p>We do not sell personal information. We share it only with UTS group companies and service providers that host and operate this site (for example our hosting, database and email providers) under confidentiality obligations, or where the law requires.</p>
+<h2>Retention and security</h2><p>We keep enquiry data for as long as needed to follow up and for a reasonable period afterwards, then delete or anonymise it. Data is stored in access-controlled systems and transmitted over HTTPS.</p>
+<h2>Your rights</h2><p>You may ask to access, correct or delete your personal information, or withdraw consent, by writing to <a href="mailto:${site.email}">${site.email}</a>. We handle requests in line with applicable law, including India’s Digital Personal Data Protection Act, 2023.</p>
+<h2>Changes</h2><p>We may update this policy; the date below shows the latest revision.</p>`],
+  'terms-of-use': ['Terms of Use', 'The terms that apply when you use the Open Netrikkan website.', `
+<h2>Acceptance</h2><p>By using this website you agree to these terms. If you do not agree, please do not use the site.</p>
+<h2>Content and intellectual property</h2><p>All content, including text, graphics, videos, the whitepaper and the Open Netrikkan name and logo, belongs to Open Netrikkan or its licensors. Open Netrikkan includes patent-pending technology. Third-party product names and logos belong to their owners and are shown only to indicate compatibility.</p>
+<h2>Videos and downloads</h2><p>Videos are provided for viewing on this site and may not be downloaded, copied, recorded or redistributed. The whitepaper is provided for your own business reference; please do not republish it without written permission.</p>
+<h2>Demonstration figures</h2><p>Figures shown on this site come from demonstration environments on synthetic or representative data. Real results depend on each customer’s own operating data and are not guaranteed.</p>
+<h2>Acceptable use</h2><p>Do not misuse the site, attempt to access it by unauthorised means, scrape or overload it, or submit false or third-party information.</p>
+<h2>Disclaimer and liability</h2><p>The site is provided “as is”. To the extent permitted by law, Open Netrikkan is not liable for indirect or consequential loss arising from your use of the site. Nothing here limits liability that cannot be limited by law.</p>
+<h2>Governing law</h2><p>These terms are governed by the laws of India, and the courts at Bengaluru have jurisdiction.</p>
+<h2>Contact</h2><p><a href="mailto:${site.email}">${site.email}</a></p>`],
+  'cookie-policy': ['Cookie Policy', 'What this website stores on your device, and how to control it.', `
+<h2>What we use</h2><p>This site uses only essential browser storage. We do not use advertising or cross-site tracking cookies.</p>
+<table class="ltable"><thead><tr><th>Item</th><th>Purpose</th><th>Duration</th></tr></thead><tbody>
+<tr><td>on_wp (local storage)</td><td>Remembers that you unlocked the whitepaper download</td><td>Up to 24 hours</td></tr>
+<tr><td>on_sid (session storage)</td><td>Keeps the chat assistant session together</td><td>Until you close the tab</td></tr>
+<tr><td>on_cookie_pref (local storage)</td><td>Remembers your cookie choice</td><td>Until you clear it</td></tr></tbody></table>
+<h2 id="preferences">Cookie preferences</h2><p>Essential storage is always on because the site needs it to work. If we add optional analytics in future, it will stay off until you opt in here.</p>
+<div class="prefbox"><label><input type="checkbox" checked disabled> Essential (always on)</label><label><input type="checkbox" id="prefAnalytics"> Analytics (optional — not currently in use)</label><button class="btn btn-primary" type="button" id="prefSave">Save preferences</button><p class="form-status" id="prefMsg" role="status"></p></div>
+<h2>Managing storage</h2><p>You can also clear or block site storage in your browser settings; parts of the site, such as the whitepaper download, may then ask you to re-enter your details.</p>
+<h2>Contact</h2><p><a href="mailto:${site.email}">${site.email}</a></p>`],
+  'accessibility': ['Accessibility', 'Our commitment to a website everyone can use.', `
+<h2>Our commitment</h2><p>Open Netrikkan aims for this website to be usable by everyone, including people who use assistive technology. We work towards the Web Content Accessibility Guidelines (WCAG) 2.1 level AA.</p>
+<h2>What we do</h2><ul><li>Semantic page structure, a skip-to-content link and keyboard-operable menus, dialogs and forms.</li><li>Text alternatives for images and labelled form fields with clear error messages.</li><li>Colour contrast chosen for readability, and reduced motion respected for animations.</li></ul>
+<h2>Known limitations</h2><p>Some embedded product videos may not yet have captions or transcripts. Tell us if you need one and we will provide it.</p>
+<h2>Feedback</h2><p>If you have difficulty using any part of this site, write to <a href="mailto:${site.email}?subject=Accessibility%20feedback">${site.email}</a> and we will help and aim to reply within five working days.</p>`],
+};
+const LEGAL_DATE = 'October 2026';
+function legalPage(slug) {
+  const [title, lede, html] = LEGAL[slug];
+  const body = `${pageHero('Legal', title, lede)}<section class="sec"><div class="wrap legal">${html}<p class="wp-note">Last updated: ${LEGAL_DATE}. © ${new Date().getFullYear()} Open Netrikkan.</p></div></section>`;
+  return layout({ title, desc: lede, body, path: `/${slug}/` });
+}
+
 function notFound() {
   return layout({ title: 'Page not found', desc: 'Page not found', body: `${pageHero('404', 'That page is not on the floor plan', 'Try the module list or head back home.', `<p><a class="btn btn-gold" href="/">Go home</a></p>`)}`, path: '/404' });
 }
@@ -410,6 +452,7 @@ write('whitepaper/index.html', whitepaperPage());
 write('integrations/index.html', integrationsPage());
 write('about/index.html', aboutPage());
 write('contact/index.html', contactPage());
+Object.keys(LEGAL).forEach(k => write(`${k}/index.html`, legalPage(k)));
 write('404.html', notFound());
 
 // Edge-function content (chatbot knowledge base, form options, video ids) generated from the same source of truth
@@ -417,4 +460,4 @@ const edge = { site: { email: site.email }, faq: C.faq, bookIntent: C.bookIntent
 const edgeDir = path.join(__dirname, 'supabase/functions/site-api');
 fs.mkdirSync(edgeDir, { recursive: true });
 fs.writeFileSync(path.join(edgeDir, 'content.mjs'), '// GENERATED by build.js from data/content.js - do not edit by hand\nexport default ' + JSON.stringify(edge) + ';\n');
-console.log('Built', 9 + modules.length, 'pages + edge content');
+console.log('Built', 13 + modules.length, 'pages + edge content');
