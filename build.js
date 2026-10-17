@@ -99,7 +99,7 @@ function layout({ title, desc, body, path: p = '/', cls = '', hero = false }) {
       <a href="/platform/" class="m">Platform</a>
       <div class="m has-drop mega-wrap"><button class="dropbtn" aria-expanded="false">Modules ${icon('chevron')}</button>
         <div class="mega"><div class="mega-in">
-          <div class="mega-side"><p class="kick">Nine decision engines</p><p>One method — simulate before you commit — applied to nine recurring planning questions.</p><a class="btn btn-ghost-dark" href="/modules/">All modules ${icon('arrow')}</a></div>
+          <div class="mega-side"><p>One method — simulate before you commit — applied to nine recurring planning questions.</p><a class="btn btn-ghost-dark" href="/modules/">All modules ${icon('arrow')}</a></div>
           <div class="mega-grid">${NAV_MODULES}</div>
         </div></div></div>
       <a href="/#industries" class="m">Industries</a>
@@ -134,7 +134,7 @@ ${body}
 </div>
 <div class="modal" id="wpModal" role="dialog" aria-modal="true" aria-label="Download the whitepaper" hidden>
   <div class="modal-in wpm"><button class="modal-x" data-close aria-label="Close">${icon('close')}</button>
-    <p class="kick">Whitepaper · ${whitepaper.date}</p><h3>${whitepaper.title}</h3><p class="muted">Tell us a little about you to get your personal PDF download link. A corporate email is required.</p>
+    <h3>${whitepaper.title}</h3><p class="muted">Tell us a little about you to get your personal PDF download link. A corporate email is required.</p>
     ${leadForm({ id: 'wpFormModal', source: 'whitepaper', submit: 'Get the PDF', wp: true })}
   </div>
 </div>
@@ -158,7 +158,7 @@ ${cls.includes('page-modules') ? '' : ''}
 }
 
 // ---------- shared blocks ----------
-const pageHero = (kick, h1, sub, extra = '') => `<section class="page-hero"><div class="wrap"><p class="kick">${kick}</p><h1>${h1}</h1><p class="lede">${sub}</p>${extra}</div><div class="ph-grid" aria-hidden="true"></div></section>`;
+const pageHero = (kick, h1, sub, extra = '') => `<section class="page-hero"><div class="wrap"><h1>${h1}</h1><p class="lede">${sub}</p>${extra}</div><div class="ph-grid" aria-hidden="true"></div></section>`;
 const ctaBand = (h = 'See it against your own numbers', p = 'A 30-minute working session: you nominate the planning decision that hurts most, and we run the closest tool against a representative case from your operation.') => `<section class="cta-band"><div class="wrap"><div><h2>${h}</h2><p>${p}</p></div><div class="cta-btns"><a class="btn btn-gold" href="/contact/">Book a demo ${icon('arrow')}</a><a class="btn btn-ghost" href="/whitepaper/">Read the whitepaper</a></div></div></section>`;
 
 function illus(m) {
@@ -190,7 +190,7 @@ function home() {
 <section class="hero"><canvas id="heroCanvas" aria-hidden="true"></canvas><div class="hero-fade"></div>
   <div class="wrap hero-in">
     <div class="hero-copy">
-      <p class="kick gold">AI-native discrete event simulation</p>
+      
       <h1>Simulate the decision <em>before</em> it costs you the quarter.</h1>
       <p class="lede">Open Netrikkan turns changeovers, schedules and quotes into evidence. Model your plant, run thousands of scenarios against your real constraints, and get a ranked recommendation with the reasoning visible.</p>
       <div class="hero-btns"><a class="btn btn-gold" href="/contact/">Book a demo ${icon('arrow')}</a><button class="btn btn-ghost" data-video="${feat.id}" data-title="${esc(feat.title)}" data-blurb="${esc(feat.blurb)}">${icon('play')} Watch a walkthrough</button></div>
@@ -202,7 +202,7 @@ function home() {
 </section>
 
 <section class="sec"><div class="wrap">
-  <div class="sec-h center"><p class="kick">The decision layer</p><h2>Contract manufacturers are paid for <em>decisions made correctly</em></h2><p>Which job runs next, which machine takes it, how much stock stands behind it — thousands of times a week. Most are still made on spreadsheets and experience. Simulation lets a plant test a decision before it commits to it.</p></div>
+  <div class="sec-h center"><h2>Contract manufacturers are paid for <em>decisions made correctly</em></h2><p>Which job runs next, which machine takes it, how much stock stands behind it — thousands of times a week. Most are still made on spreadsheets and experience. Simulation lets a plant test a decision before it commits to it.</p></div>
   <div class="trio">
     <div class="tcard"><span class="ti">${icon('layers')}</span><h3>Scenarios, not forecasts</h3><p>What if a customer adds 20% volume, a machine is down for two shifts, or a mould is delayed? Each becomes a scenario, compared side by side.</p></div>
     <div class="tcard"><span class="ti">${icon('target')}</span><h3>Recommendations with reasons</h3><p>An AI decision layer ranks the fix and explains why — every scenario is a reproducible run that can be defended to a customer or an auditor.</p></div>
@@ -210,7 +210,7 @@ function home() {
   </div></div></section>
 
 <section class="sec dark" id="how"><div class="wrap">
-  <div class="sec-h"><p class="kick gold">How it works</p><h2>From event model to recommendation</h2><p>A four-agent decision chain runs locally against your plant’s own data, in a closed loop that keeps refining the recommendation until improvement flattens.</p></div>
+  <div class="sec-h"><h2>From event model to recommendation</h2><p>A four-agent decision chain runs locally against your plant’s own data, in a closed loop that keeps refining the recommendation until improvement flattens.</p></div>
   <div class="chain">
     ${[['Interpreter', 'Reads plant data and constraints from the spreadsheets, PDFs and drawings you already hold.', 'db'], ['Diagnostician', 'Finds where time is being lost — queues, changeovers, idle hours, late material.', 'gear'], ['Simulator', 'Runs hundreds or thousands of scenarios and shows the range of outcomes, not one average.', 'layers'], ['Recommender', 'Ranks the fix, explains why, and hands the plan to the planner.', 'target']].map((a, i) => `<div class="link"><span class="n">0${i + 1}</span><span class="ai">${icon(a[2])}</span><h3>${a[0]}</h3><p>${a[1]}</p></div>${i < 3 ? '<i class="arr">→</i>' : ''}`).join('')}
   </div>
@@ -218,12 +218,12 @@ function home() {
 </div></section>
 
 <section class="sec" id="modules"><div class="wrap">
-  <div class="sec-h split"><div><p class="kick">Modules</p><h2>Nine decision engines. One question each.</h2></div><p>Start with the decision that costs the most today. Each module runs on the same simulation core and can be adopted on its own.</p></div>
+  <div class="sec-h split"><div><h2>Nine decision engines. One question each.</h2></div><p>Start with the decision that costs the most today. Each module runs on the same simulation core and can be adopted on its own.</p></div>
   <div class="mgrid">${modules.map(moduleCard).join('')}</div>
 </div></section>
 
 <section class="sec tint" id="videos"><div class="wrap">
-  <div class="sec-h split"><div><p class="kick">See it running</p><h2>Product walkthroughs</h2></div><p>Watch the modules in action — from an order spreadsheet to a verified plan.</p></div>
+  <div class="sec-h split"><div><h2>Product walkthroughs</h2></div><p>Watch the modules in action — from an order spreadsheet to a verified plan.</p></div>
   <div class="vgrid">${videos.map(videoCard).join('')}</div>
   <p class="center-btn"><a class="btn btn-outline" href="/videos/">Open the video library ${icon('arrow')}</a></p>
 </div></section>
@@ -236,25 +236,25 @@ function home() {
 </div></section>
 
 <section class="sec" id="industries"><div class="wrap">
-  <div class="sec-h center"><p class="kick">Industries</p><h2>One method across sectors</h2><p>Changeover hours, quote accuracy, utilisation, batch lead time, dock cost, yield, stock-out risk, delivery cost — nine cost lines, one method.</p></div>
+  <div class="sec-h center"><h2>One method across sectors</h2><p>Changeover hours, quote accuracy, utilisation, batch lead time, dock cost, yield, stock-out risk, delivery cost — nine cost lines, one method.</p></div>
   <div class="igrid">${industries.map(i => `<a class="icard" href="/modules/${i[2]}/"><h3>${i[0]}</h3><p>${i[1]}</p><span>${icon('arrow')}</span></a>`).join('')}</div>
 </div></section>
 
 <section class="sec tint" id="cases"><div class="wrap">
-  <div class="sec-h split"><div><p class="kick">Case studies</p><h2>Outcomes from our programmes</h2></div><p>Anonymised outcomes from digital-twin programmes and our own modules in action.</p></div>
+  <div class="sec-h split"><div><h2>Outcomes from our programmes</h2></div><p>Anonymised outcomes from digital-twin programmes and our own modules in action.</p></div>
   <div class="cgrid3">${caseStudies.filter(c => ['virtual-commissioning', 'scanning-robot', 'pharma-line'].includes(c.id)).map(c => `<a class="cmini" href="/case-studies/#${c.id}"><div class="cimg">${img(c.img, c.title)}<span class="ctag">${c.tag}</span></div><h3>${c.title}</h3><p>${c.objective}</p><span class="mlink">Read the outcomes ${icon('arrow')}</span></a>`).join('')}</div>
   <p class="center-btn"><a class="btn btn-outline" href="/case-studies/">All case studies ${icon('arrow')}</a></p>
 </div></section>
 
 <section class="sec" id="integrations"><div class="wrap">
-  <div class="sec-h split"><div><p class="kick">Integrations</p><h2>Works with the systems you already run</h2></div><p>ERP, MES, WMS, digital twin, historians and shop-floor protocols — and open APIs for anything else.</p></div>
+  <div class="sec-h split"><div><h2>Works with the systems you already run</h2></div><p>ERP, MES, WMS, digital twin, historians and shop-floor protocols — and open APIs for anything else.</p></div>
   <div class="brand-wall compact">${C.integrationBrands.map(brandBlock).join('')}</div>
   <p class="center-btn"><a class="btn btn-outline" href="/integrations/">See supported integrations ${icon('arrow')}</a></p>
 </div></section>
 
 <section class="sec"><div class="wrap wpbanner">
   <div class="wp-cover-mini"><div class="cv"><small>Whitepaper · ${whitepaper.date}</small><b>${whitepaper.title}</b><i></i></div></div>
-  <div><p class="kick">Whitepaper</p><h2>Simulation as the Operating System for Contract Manufacturing</h2><p>${whitepaper.dek}</p><div class="hero-btns"><a class="btn btn-primary" href="/whitepaper/">Read online ${icon('arrow')}</a><button class="btn btn-outline" data-wp-download>${icon('doc')} Download the PDF</button></div></div>
+  <div><h2>Simulation as the Operating System for Contract Manufacturing</h2><p>${whitepaper.dek}</p><div class="hero-btns"><a class="btn btn-primary" href="/whitepaper/">Read online ${icon('arrow')}</a><button class="btn btn-outline" data-wp-download>${icon('doc')} Download the PDF</button></div></div>
 </div></section>
 
 ${ctaBand()}`;
@@ -268,15 +268,15 @@ function platform() {
   <div class="agent-stack">${['Interpreter · reads plant data & constraints', 'Diagnostician · finds where time is being lost', 'Simulator · runs scenarios at scale', 'Recommender · ranks the fix, explains why'].map((t, i) => `<div><i>0${i + 1}</i>${t}</div>`).join('')}<p>↻ closed loop until improvement flattens</p></div>
 </div></section>
 <section class="sec tint"><div class="wrap">
-  <div class="sec-h center"><p class="kick">Capabilities</p><h2>Built for real planning decisions</h2></div>
+  <div class="sec-h center"><h2>Built for real planning decisions</h2></div>
   <div class="trio four">
     ${[['db', 'Fast to configure', 'Data arrives as the spreadsheets, PDFs and drawings a plant already holds; document extraction converts them into simulation inputs. A first model does not wait on an integration project.'], ['layers', 'Scenario comparison', 'Save, compare and re-run scenarios side by side. Every run is reproducible and explainable.'], ['shield', 'Data stays put', 'Language models run locally, so operational data need not leave the customer’s environment.'], ['gear', 'Additive to your stack', 'Designed to sit beside SAP, Siemens Opcenter and equivalent MES/WMS systems — never to replace them.'], ['chat', 'Ask about the schedule', 'Plain-language questions answered from the schedule’s own numbers, so figures always match the charts.'], ['doc', 'Reports and exports', 'Excel, JSON, PowerPoint and PDF exports for offline review or ERP hand-off.'], ['lock', 'Roles and access', 'Plant head, planner, viewer, sales and RFP-prep roles — each with exactly the access they need.'], ['target', 'Gain-share pricing', 'Pay for results: audited baseline, agreed utilisation definition, joint measurement committee and a monthly floor fee.']].map(c => `<div class="tcard"><span class="ti">${icon(c[0])}</span><h3>${c[1]}</h3><p>${c[2]}</p></div>`).join('')}
   </div></div></section>
 <section class="sec"><div class="wrap">
-  <div class="sec-h center"><p class="kick">Deployment</p><h2>Start with the decision that costs the most today</h2><p>Durations are indicative and depend on data readiness.</p></div>
+  <div class="sec-h center"><h2>Start with the decision that costs the most today</h2><p>Durations are indicative and depend on data readiness.</p></div>
   <div class="wp-steps big"><div><i>01</i><b>Baseline</b><em>1–2 weeks</em><span>Collect existing schedules, order history and machine data; agree the audited baseline and the metric that defines success.</span></div><div><i>02</i><b>Model</b><em>2–4 weeks</em><span>Build and validate the simulation against last quarter’s actual performance.</span></div><div><i>03</i><b>Pilot</b><em>4–8 weeks</em><span>Planners run scenarios alongside their normal process and compare outcomes.</span></div><div><i>04</i><b>Scale</b><em>Ongoing</em><span>Move to daily use; extend to a second line, plant or tool.</span></div></div>
 </div></section>
-<section class="sec tint"><div class="wrap"><div class="sec-h split"><div><p class="kick">Modules</p><h2>Nine engines on one core</h2></div><a class="btn btn-outline" href="/modules/">All modules ${icon('arrow')}</a></div><div class="mgrid">${modules.slice(0, 3).map(moduleCard).join('')}</div></div></section>
+<section class="sec tint"><div class="wrap"><div class="sec-h split"><div><h2>Nine engines on one core</h2></div><a class="btn btn-outline" href="/modules/">All modules ${icon('arrow')}</a></div><div class="mgrid">${modules.slice(0, 3).map(moduleCard).join('')}</div></div></section>
 ${ctaBand()}`;
   return layout({ title: 'Platform', desc: 'How the Open Netrikkan platform works: a discrete event simulation core with a four-agent AI decision layer.', body, path: '/platform/' });
 }
@@ -293,19 +293,19 @@ function modulePage(m, i) {
   const shots = m.images.map((n, k) => `<button class="shot" data-lightbox="/assets/img/${n}.jpg" data-cap="${esc(m.name)} — screenshot ${k + 1}">${img(n, `${m.name} screenshot ${k + 1}`)}<span>Enlarge</span></button>`).join('');
   const body = `
 <section class="page-hero mod-hero"><div class="wrap two">
-  <div><p class="crumb"><a href="/modules/">Modules</a> / ${m.n}</p><p class="kick">${m.sector}</p><h1>${m.name}</h1><p class="q">“${m.question}”</p>
+  <div><p class="crumb"><a href="/modules/">Modules</a> / ${m.n}</p><h1>${m.name}</h1><p class="q">“${m.question}”</p>
     <div class="hero-btns"><a class="btn btn-gold" href="/contact/">Book a walkthrough ${icon('arrow')}</a>${v ? `<button class="btn btn-ghost" data-video="${v.id}" data-title="${esc(v.title)}" data-blurb="${esc(v.blurb)}">${icon('play')} Watch the video</button>` : `<a class="btn btn-ghost" href="/integrations/">Integrations</a>`}</div>
     <p class="mstatus">${icon('check')} ${m.status}</p></div>
   <div class="mod-visual">${m.images[0] ? `<button class="shot big" data-lightbox="/assets/img/${m.images[0]}.jpg" data-cap="${esc(m.name)}">${img(m.images[0], m.name + ' screenshot', 'loading="eager"')}</button>` : illus(m)}</div>
 </div><div class="ph-grid" aria-hidden="true"></div></section>
 <section class="sec"><div class="wrap two wide">
   <div><h2>What it does</h2><p class="big">${m.body}</p></div>
-  <aside class="result"><p class="kick">Result</p><p>${m.result}</p></aside>
+  <aside class="result"><p>${m.result}</p></aside>
 </div></section>
-<section class="sec tint"><div class="wrap"><div class="sec-h"><p class="kick">Capabilities</p><h2>Inside ${m.name}</h2></div>
+<section class="sec tint"><div class="wrap"><div class="sec-h"><h2>Inside ${m.name}</h2></div>
   <div class="feat">${m.features.map(f => `<div class="fitem"><span>${icon('check')}</span><div><h3>${f[0]}</h3><p>${f[1]}</p></div></div>`).join('')}</div></div></section>
-${m.images.length ? `<section class="sec"><div class="wrap"><div class="sec-h"><p class="kick">Screenshots</p><h2>${m.name} in use</h2></div><div class="shots n${m.images.length}">${shots}</div></div></section>` : ''}
-${v ? `<section class="sec ${m.images.length ? 'tint' : ''}"><div class="wrap"><div class="sec-h"><p class="kick">Video</p><h2>Watch the walkthrough</h2></div><div class="vgrid one">${videoCard(v)}</div></div></section>` : ''}
+${m.images.length ? `<section class="sec"><div class="wrap"><div class="sec-h"><h2>${m.name} in use</h2></div><div class="shots n${m.images.length}">${shots}</div></div></section>` : ''}
+${v ? `<section class="sec ${m.images.length ? 'tint' : ''}"><div class="wrap"><div class="sec-h"><h2>Watch the walkthrough</h2></div><div class="vgrid one">${videoCard(v)}</div></div></section>` : ''}
 <section class="sec ${v || m.images.length ? '' : 'tint'}"><div class="wrap modnav"><a href="/modules/${prev.slug}/"><small>← Previous</small><b>${prev.name}</b></a><a href="/modules/" class="all">All modules</a><a href="/modules/${next.slug}/" class="r"><small>Next →</small><b>${next.name}</b></a></div></section>
 ${ctaBand(`Try ${m.name} on your own data`, 'Nominate the decision that hurts most and we will run this module against a representative case from your operation.')}`;
   return layout({ title: m.name, desc: `${m.name} — ${m.short} ${m.sector} module of the Open Netrikkan simulation platform.`, body, path: `/modules/${m.slug}/` });
@@ -315,14 +315,14 @@ function videosPage() {
   const body = `${pageHero('Videos', 'Product walkthroughs', 'Watch the Open Netrikkan modules running — from an order spreadsheet to a verified plan. Videos are streamed for viewing only.')}
 <section class="sec"><div class="wrap"><div class="vgrid">${videos.map(videoCard).join('')}</div>
 <div class="note-box">${icon('lock')}<p><b>Streaming only.</b> Our videos are provided for viewing on this site and are not available for download. Want to see a module on your own data? <a href="/contact/">Book a demo</a>.</p></div></div></section>${ctaBand()}`;
-  return layout({ title: 'Videos', desc: 'Watch product walkthroughs of Open Netrikkan modules: Changeover Optimizer, Newline, Tablet and the Customer Commitment Analyser.', body, path: '/videos/' });
+  return layout({ title: 'Videos', desc: 'Watch product walkthroughs of Open Netrikkan modules: all nine modules.', body, path: '/videos/' });
 }
 
 function casesPage() {
   const groups = [...new Set(caseStudies.map(c => c.group))];
   const body = `${pageHero('Case studies', 'Case studies and modules in action', 'Digital-twin and virtual-commissioning programmes from our team’s earlier work, and our modules in action. Client and employer names are withheld.')}
-${groups.map((g, gi) => `<section class="sec ${gi % 2 ? 'tint' : ''}"><div class="wrap"><div class="sec-h"><p class="kick">${g}</p><h2>${gi === 0 ? 'Experience from large-scale digital-twin programmes' : 'Open Netrikkan modules, illustrated on demonstration data'}</h2></div><div class="cgrid">${caseStudies.filter(c => c.group === g).map(caseCard).join('')}</div></div></section>`).join('')}
-<section class="sec"><div class="wrap"><div class="sec-h center"><p class="kick">Trusted and recognised</p><h2>Backed by a growing ecosystem</h2></div>
+${groups.map((g, gi) => `<section class="sec ${gi % 2 ? 'tint' : ''}"><div class="wrap"><div class="sec-h"><h2>${gi === 0 ? 'Experience from large-scale digital-twin programmes' : 'Open Netrikkan modules, illustrated on demonstration data'}</h2></div><div class="cgrid">${caseStudies.filter(c => c.group === g).map(caseCard).join('')}</div></div></section>`).join('')}
+<section class="sec"><div class="wrap"><div class="sec-h center"><h2>Backed by a growing ecosystem</h2></div>
 <div class="logos">${C.ecosystem.map(e => `<div class="logo">${e}</div>`).join('')}${C.customerLogos.map(l => `<div class="logo img"><img src="/assets/logos/${l.file}" alt="${esc(l.alt)}"></div>`).join('')}</div></div></section>${ctaBand('Have a similar challenge?')}`;
   return layout({ title: 'Case studies', desc: 'Anonymised case studies: aircraft-fuselage virtual commissioning, digital-twin quality, and Open Netrikkan modules in action.', body, path: '/case-studies/' });
 }
@@ -332,13 +332,13 @@ function whitepaperPage() {
   const secs = whitepaper.sections.map((s, i) => `<section class="wp-sec ${['big-idea', 'why-now'].includes(s.id) ? 'wp-dark' : ''}" id="${s.id}"><p class="wp-num">${String(i + 1).padStart(2, '0')} — ${s.title}</p>${s.html}</section>`).join('');
   const body = `<div class="progress" id="progress"></div>
 <section class="wp-hero"><div class="wrap two">
-  <div><p class="kick gold">Whitepaper · ${whitepaper.date} · ${whitepaper.pages} pages</p><h1>${whitepaper.title}</h1><p class="lede">${whitepaper.dek}</p>
+  <div><h1>${whitepaper.title}</h1><p class="lede">${whitepaper.dek}</p>
     <div class="hero-btns"><button class="btn btn-gold" data-wp-download>${icon('doc')} Download the PDF</button><a class="btn btn-ghost" href="#big-idea">Read online ${icon('arrow')}</a></div>
     <p class="wp-hint">${icon('lock')} Free with your corporate email — read the full paper below without signing up.</p></div>
   <div class="wp-cover"><div class="cover"><small>Whitepaper · ${whitepaper.date}</small><h2>Simulation as the Operating System for Contract Manufacturing</h2><p>Nine decision engines from Open Netrikkan</p><span>opennetrikkan.com</span></div></div>
 </div></section>
 <div class="wrap wp-layout">
-  <aside class="wp-toc"><p class="kick">In this paper</p>${toc}<button class="btn btn-primary btn-block" data-wp-download>${icon('doc')} Download PDF</button></aside>
+  <aside class="wp-toc">${toc}<button class="btn btn-primary btn-block" data-wp-download>${icon('doc')} Download PDF</button></aside>
   <article class="wp-body">${secs}
     <section class="wp-sec wp-gate" id="download"><p class="wp-num">Get the PDF</p><h3>Download the full whitepaper</h3><p>Complete the short form with your corporate email and we will give you a personal download link for the PDF edition. All fields are required.</p>
       ${leadForm({ id: 'wpFormInline', source: 'whitepaper', submit: 'Get the PDF', wp: true })}</section>
@@ -352,11 +352,11 @@ function aboutPage() {
   const body = `${pageHero('Company', 'Decisions made correctly, thousands of times a week', 'Open Netrikkan is an AI-native discrete event simulation platform for manufacturing and logistics, built in Bengaluru and now part of UTS.')}
 <section class="sec"><div class="wrap two wide">
   <div><h2>Why we exist</h2><p class="big">Contract manufacturers are not paid for equipment. They are paid for decisions made correctly — which job runs next, which machine takes it, how much stock stands behind it. Most of those decisions are still made on spreadsheets and experience.</p><p>We build simulation-based decision engines that let a plant test a decision before it commits to it: model the operation as a sequence of events, feed it the real constraints, run hundreds or thousands of scenarios, and hand the planner a ranked recommendation with the reasoning visible.</p></div>
-  <aside class="result"><p class="kick">At a glance</p><ul class="glance"><li><b>Acquired by UTS</b> — Univision Technology Solutions</li><li><b>NASSCOM DeepTech</b> member</li><li><b>Patent-pending IP</b> across the platform</li><li><b>Bengaluru, India</b></li></ul></aside>
+  <aside class="result"><ul class="glance"><li><b>Acquired by UTS</b> — Univision Technology Solutions</li><li><b>NASSCOM DeepTech</b> member</li><li><b>Patent-pending IP</b> across the platform</li><li><b>Bengaluru, India</b></li></ul></aside>
 </div></section>
 <section class="sec tint" id="uts"><div class="wrap two wide">
-  <div><p class="kick">Part of UTS</p><h2>Open Netrikkan has been acquired by UTS</h2><p class="big">${site.uts.name} is a global engineering and product company — <em>${site.uts.tagline}</em>. Its work spans semiconductor design, embedded and RF products, radar systems and AI-driven digital twin and decarbonisation platforms, with accountability across the whole lifecycle of what it builds.</p><p>Open Netrikkan brings discrete event simulation and AI decision engines for manufacturing and logistics into that portfolio, alongside UTS’s engineering depth in silicon, systems and sustainability.</p><p><a class="btn btn-primary" href="${site.uts.url}" target="_blank" rel="noopener">Visit uts3s.com ${icon('ext')}</a></p></div>
-  <aside class="result"><p class="kick">UTS at a glance</p><ul class="glance"><li><b>Silicon, Systems, Sustainability</b></li><li>Semiconductor design</li><li>Embedded and RF products</li><li>Radar systems</li><li>AI-driven digital twin and decarbonisation platforms</li></ul></aside>
+  <div><h2>Open Netrikkan has been acquired by UTS</h2><p class="big">${site.uts.name} is a global engineering and product company — <em>${site.uts.tagline}</em>. Its work spans semiconductor design, embedded and RF products, radar systems and AI-driven digital twin and decarbonisation platforms, with accountability across the whole lifecycle of what it builds.</p><p>Open Netrikkan brings discrete event simulation and AI decision engines for manufacturing and logistics into that portfolio, alongside UTS’s engineering depth in silicon, systems and sustainability.</p><p><a class="btn btn-primary" href="${site.uts.url}" target="_blank" rel="noopener">Visit uts3s.com ${icon('ext')}</a></p></div>
+  <aside class="result"><ul class="glance"><li><b>Silicon, Systems, Sustainability</b></li><li>Semiconductor design</li><li>Embedded and RF products</li><li>Radar systems</li><li>AI-driven digital twin and decarbonisation platforms</li></ul></aside>
 </div></section>
 ${ctaBand()}`;
   return layout({ title: 'Company', desc: 'About Open Netrikkan, an AI-native discrete event simulation platform for manufacturing and logistics.', body, path: '/about/' });
@@ -366,7 +366,7 @@ function contactPage() {
   const body = `${pageHero('Contact', 'Book a demo', 'A practical next step is a 30-minute working session: you nominate the one planning decision that hurts most, and we run the closest tool against a representative case from your operation.')}
 <section class="sec"><div class="wrap two contact">
   <div class="cform"><h2>Tell us about you</h2>${leadForm({ id: 'contactForm', source: 'demo', submit: 'Request a demo', note: true })}<div class="done" id="contactDone" hidden><div class="ok">${icon('check')}</div><h3>Thank you — we will be in touch shortly</h3><p>In the meantime, you can read the <a href="/whitepaper/">whitepaper</a> or watch a <a href="/videos/">product video</a>.</p></div></div>
-  <aside class="result"><p class="kick">Talk to us directly</p><p><a href="mailto:${site.email}">${site.email}</a><br>${site.city}</p><hr><p class="kick">What happens next</p><ol class="next"><li>We review your request within one working day.</li><li>We agree the one decision that hurts most.</li><li>We run the closest module against a representative case.</li></ol></aside>
+  <aside class="result"><p><a href="mailto:${site.email}">${site.email}</a><br>${site.city}</p><hr><ol class="next"><li>We review your request within one working day.</li><li>We agree the one decision that hurts most.</li><li>We run the closest module against a representative case.</li></ol></aside>
 </div></section>`;
   return layout({ title: 'Contact', desc: 'Book an Open Netrikkan demo: a 30-minute working session on the planning decision that hurts most.', body, path: '/contact/' });
 }
@@ -375,17 +375,17 @@ function integrationsPage() {
   const I = C.integrations;
   const body = `${pageHero('Integrations', 'Fits the stack you already have', I.intro)}
 <section class="sec"><div class="wrap">
-  <div class="sec-h center"><p class="kick">Supported integrations</p><h2>ERP, MES, digital twin, historians and protocols</h2></div>
+  <div class="sec-h center"><h2>ERP, MES, digital twin, historians and protocols</h2></div>
   <div class="intg-grid">${I.groups.map(g => `<article class="intg"><span class="ti">${icon(g.icon)}</span><h3>${g.title}</h3><ul>${g.items.map(x => `<li>${x}</li>`).join('')}</ul></article>`).join('')}</div>
   <p class="wp-note center-note">${I.note}</p>
 </div></section>
-<section class="sec tint"><div class="wrap"><div class="sec-h center"><p class="kick">Works with</p><h2>Systems and standards we connect to</h2></div>
+<section class="sec tint"><div class="wrap"><div class="sec-h center"><h2>Systems and standards we connect to</h2></div>
   <div class="brand-wall">${C.integrationBrands.map(brandBlock).join('')}</div>
   <p class="wp-note center-note">Product names and logos belong to their respective owners and are shown only to indicate compatibility.</p>
 </div></section>
 <section class="sec tint"><div class="wrap two wide">
-  <div><p class="kick">Open APIs</p><h2>${I.api.title}</h2><p class="big">${I.api.body}</p><p><a class="btn btn-primary" href="/contact/">Talk to us about an integration ${icon('arrow')}</a></p></div>
-  <aside class="result"><p class="kick">What we expose</p><ul class="glance">${I.api.points.map(x => `<li>${x}</li>`).join('')}</ul></aside>
+  <div><h2>${I.api.title}</h2><p class="big">${I.api.body}</p><p><a class="btn btn-primary" href="/contact/">Talk to us about an integration ${icon('arrow')}</a></p></div>
+  <aside class="result"><ul class="glance">${I.api.points.map(x => `<li>${x}</li>`).join('')}</ul></aside>
 </div></section>${ctaBand('Tell us what you need to connect')}`;
   return layout({ title: 'Integrations', desc: 'Open Netrikkan integrates with ERP, MES, WMS, digital-twin platforms, historians and shop-floor protocols, and exposes open APIs for your own integrations.', body, path: '/integrations/' });
 }

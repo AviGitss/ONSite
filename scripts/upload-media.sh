@@ -10,6 +10,6 @@ up() { # bucket objectname localfile mime
   curl -fsS -X POST "$URL/storage/v1/object/$1/$2" -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
     -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" -H "Content-Type: $4" -H "x-upsert: true" --data-binary "@$3" >/dev/null
 }
-for id in changeover-optimizer newline tablet-pharma customer-commitment; do up site-videos "$id.mp4" "private/video/$id.mp4" video/mp4; done
+for id in changeover-optimizer newline tablet-pharma customer-commitment warehouse outbound fabsim oilsim replenish; do up site-videos "$id.mp4" "private/video/$id.mp4" video/mp4; done
 up site-docs whitepaper.pdf private/whitepaper.pdf application/pdf
 echo done

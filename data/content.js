@@ -97,7 +97,7 @@ const modules = [
       ['Peak versus normal', 'Compare volume bands side by side to find the breaking point.'],
       ['P&L-linked KPIs', 'Dock cost and service impact expressed in money.'],
     ],
-    images: [], video: null,
+    images: ['warehouse-scenarios', 'warehouse-docks', 'warehouse-resources'], video: 'warehouse',
   },
   {
     slug: 'outbound', n: '06', name: 'Outbound', sector: 'Warehouse outbound', icon: 'truck',
@@ -111,7 +111,7 @@ const modules = [
       ['Saved configurations', 'Snapshot and compare alternative operating plans.'],
       ['Service-level focus', 'Built around on-time dispatch and contractual penalties.'],
     ],
-    images: [], video: null,
+    images: ['outbound-sim', 'outbound-bottleneck', 'outbound-ai'], video: 'outbound',
   },
   {
     slug: 'fabsim', n: '07', name: 'FabSim', sector: 'Semiconductor', icon: 'chip',
@@ -126,7 +126,7 @@ const modules = [
       ['Capacity planning', 'Find the throughput lever that matters.'],
       ['Excursion risk and WIP flow', 'Anticipate excursions and shorten cycle time.'],
     ],
-    images: [], video: null,
+    images: ['fabsim-loop', 'fabsim-kpi', 'fabsim-sampling'], video: 'fabsim',
   },
   {
     slug: 'oilsim', n: '08', name: 'OilSim', sector: 'Oil & gas upstream', icon: 'drop',
@@ -140,7 +140,7 @@ const modules = [
       ['P10 / P50 / P90 availability', 'Probability, not a single average.'],
       ['Margin and stock-out risk', 'Expected GRM impact in $/bbl and tank-farm risk score.'],
     ],
-    images: [], video: null,
+    images: ['oilsim-params', 'oilsim-results', 'oilsim-drivers'], video: 'oilsim',
   },
   {
     slug: 'replenish', n: '09', name: 'Replenish', sector: 'FMCG distribution', icon: 'fridge',
@@ -154,7 +154,7 @@ const modules = [
       ['Route priority', 'Which cabinets first, with what stock.'],
       ['Sell-through to production', 'Closes the loop from outlet to plant.'],
     ],
-    images: [], video: null,
+    images: ['replenish-alerts', 'replenish-vans', 'replenish-forecast'], video: 'replenish',
   },
 ];
 
@@ -166,6 +166,11 @@ const videos = [
   { id: 'newline', title: 'Newline — New Component Feasibility & Line Planner', module: 'newline', dur: '3:35', poster: 'newline-flow', blurb: 'A blank page to a fully scoped, cost-and-capacity-checked production line.' },
   { id: 'tablet-pharma', title: 'Tablet — Pharma Line Optimizer', module: 'tablet', dur: '3:35', poster: 'tablet-oee', blurb: 'Simulate it first: model the tablet line, run the scenario, see the outcome before anything moves on the floor.' },
   { id: 'customer-commitment', title: 'Customer Commitment Analyser', module: 'machine-bank-scheduler', dur: '4:28', poster: 'bank-schedule', blurb: 'Verify the floor before Sales commits: verified delivery dates, machine allocation and labour in one flow.' },
+  { id: 'warehouse', title: 'Warehouse — End-to-End Simulation', module: 'warehouse', dur: '3:00', poster: 'warehouse-docks', blurb: 'Run discrete-event scenarios across throughput, slotting, dock scheduling and resources — and compare the KPIs that move the P&L.' },
+  { id: 'outbound', title: 'Outbound Optimization Simulator', module: 'outbound', dur: '2:25', poster: 'outbound-sim', blurb: 'Move the levers and every KPI recomputes live: size the labour, find the ceiling, compare pick and loading policies.' },
+  { id: 'fabsim', title: 'FabSim — Semiconductor Fab Operations', module: 'fabsim', dur: '4:59', poster: 'fabsim-kpi', blurb: 'Replace the two-day feedback loop with real-time simulation: chamber matching, defect flow, sampling and excursion risk.' },
+  { id: 'oilsim', title: 'OilSim — Crude Availability Simulator', module: 'oilsim', dur: '2:41', poster: 'oilsim-results', blurb: 'A Monte Carlo model of crude reaching the refinery gate — availability distribution, margin impact and stock-out risk.' },
+  { id: 'replenish', title: 'Replenish — FMCG Freezer Replenishment', module: 'replenish', dur: '4:02', poster: 'replenish-alerts', blurb: 'From freezer alerts to a sequenced van round: forecast demand, prioritise outlets and send the van where it creates value.' },
 ];
 
 // ---------------------------------------------------------------------------
@@ -317,7 +322,7 @@ const faq = [
   { k: ['data', 'secure', 'security', 'privacy', 'safe', 'cloud', 'llm', 'on-prem'], a: 'Models run on data the plant already holds, and language models run locally, so operational data need not leave your environment. The platform is additive: it sits beside ERP, MES and WMS systems and never replaces them.', chips: ['Integrations', 'Book a demo'] },
   { k: ['erp', 'sap', 'mes', 'wms', 'integrat', 'opcenter', 'siemens', 'api', 'opc', 'mqtt', 'historian', 'pi system', 'scada', 'plc', 'protocol', 'digital twin', 'omniverse'], a: 'We integrate with ERP (SAP, Oracle, Dynamics), MES/MOM (Siemens Opcenter, DELMIA Apriso, Plex), WMS (SAP EWM, Manhattan, Blue Yonder, Oracle WMS) and TMS, digital-twin platforms (Omniverse, Tecnomatix), historians (AVEVA PI, Proficy) and shop-floor protocols such as OPC UA and MQTT. Data can also arrive as spreadsheets, PDFs and drawings. If you want to connect something else, we expose REST APIs and webhooks for it.', link: ['/integrations/', 'See supported integrations'], chips: ['Book a demo'] },
   { k: ['white paper', 'whitepaper', 'paper', 'report', 'download', 'pdf'], a: 'Our whitepaper, “Simulation as the Operating System for Contract Manufacturing”, covers all nine engines. You can read it online in full, or download the PDF with a work email.', link: ['/whitepaper/', 'Open the whitepaper'], chips: ['Book a demo'] },
-  { k: ['video', 'demo video', 'watch'], a: 'You can watch our product walkthroughs in the video library — Changeover Optimizer, Newline, Tablet and the Customer Commitment Analyser.', link: ['/videos/', 'Open the video library'], chips: ['Book a demo'] },
+  { k: ['video', 'demo video', 'watch'], a: 'You can watch our product walkthroughs in the video library — Changeover Optimizer, Newline, Tablet, Customer Commitment Analyser, Warehouse, Outbound, FabSim, OilSim and Replenish.', link: ['/videos/', 'Open the video library'], chips: ['Book a demo'] },
   { k: ['case', 'customer', 'reference', 'proof', 'results', 'outcome'], a: 'Our case-study section covers digital-twin and virtual-commissioning programmes from our team’s earlier work, plus our own modules in action.', link: ['/case-studies/', 'Open case studies'], chips: ['Book a demo'] },
   { k: ['contact', 'email', 'phone', 'call', 'reach', 'address', 'location', 'where', 'bengaluru', 'bangalore'], a: 'You can reach our team at info@opennetrikkan.com. We are based in Bengaluru, India.', chips: ['Book a demo'] },
   { k: ['uts', 'univision', 'acquired', 'nasscom', 'company', 'team', 'founder'], a: 'Open Netrikkan has been acquired by Univision Technology Solutions (UTS), a global engineering and product company (uts3s.com), and is a NASSCOM DeepTech member.', chips: ['Book a demo'] },
