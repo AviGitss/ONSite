@@ -126,7 +126,7 @@ const modules = [
       ['Capacity planning', 'Find the throughput lever that matters.'],
       ['Excursion risk and WIP flow', 'Anticipate excursions and shorten cycle time.'],
     ],
-    images: ['fabsim-loop', 'fabsim-kpi', 'fabsim-sampling'], video: 'fabsim',
+    images: ['fabsim-litho', 'fabsim-wafermap', 'fabsim-defect', 'fabsim-ate'], video: 'fabsim',
   },
   {
     slug: 'oilsim', n: '08', name: 'OilSim', sector: 'Oil & gas upstream', icon: 'drop',
@@ -168,7 +168,7 @@ const videos = [
   { id: 'customer-commitment', title: 'Customer Commitment Analyser', module: 'machine-bank-scheduler', dur: '4:28', poster: 'bank-schedule', blurb: 'Verify the floor before Sales commits: verified delivery dates, machine allocation and labour in one flow.' },
   { id: 'warehouse', title: 'Warehouse — End-to-End Simulation', module: 'warehouse', dur: '3:00', poster: 'warehouse-docks', blurb: 'Run discrete-event scenarios across throughput, slotting, dock scheduling and resources — and compare the KPIs that move the P&L.' },
   { id: 'outbound', title: 'Outbound Optimization Simulator', module: 'outbound', dur: '2:25', poster: 'outbound-sim', blurb: 'Move the levers and every KPI recomputes live: size the labour, find the ceiling, compare pick and loading policies.' },
-  { id: 'fabsim', title: 'FabSim — Semiconductor Fab Operations', module: 'fabsim', dur: '4:59', poster: 'fabsim-kpi', blurb: 'Replace the two-day feedback loop with real-time simulation: chamber matching, defect flow, sampling and excursion risk.' },
+  { id: 'fabsim', title: 'FabSim — Semiconductor Fab Operations', module: 'fabsim', dur: '4:59', poster: 'fabsim-wafermap', blurb: 'Replace the two-day feedback loop with real-time simulation: chamber matching, defect flow, sampling and excursion risk.' },
   { id: 'oilsim', title: 'OilSim — Crude Availability Simulator', module: 'oilsim', dur: '2:41', poster: 'oilsim-results', blurb: 'A Monte Carlo model of crude reaching the refinery gate — availability distribution, margin impact and stock-out risk.' },
   { id: 'replenish', title: 'Replenish — FMCG Freezer Replenishment', module: 'replenish', dur: '4:02', poster: 'replenish-alerts', blurb: 'From freezer alerts to a sequenced van round: forecast demand, prioritise outlets and send the van where it creates value.' },
 ];
